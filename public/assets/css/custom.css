@@ -1,0 +1,74 @@
+ * {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        #navbar {
+            border: none !important;
+            border-bottom: none !important;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #0f0f1a 100%);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #a855f7 0%, #c084fc 50%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(168, 85, 247, 0.2);
+        }
+        .mascot-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(168, 85, 247, 0.8); }
+        }
+
+        /* Swiper Testimonials Slider */
+        .testimonials-swiper {
+            padding-bottom: 50px !important;
+            padding-top: 10px !important;
+            padding-left: 4px !important;
+            padding-right: 4px !important;
+        }
+        .testimonials-swiper .swiper-slide {
+            height: auto;
+            display: flex;
+        }
+        .testimonials-swiper .swiper-pagination-bullet {
+            background: #64748b;
+            opacity: 0.5;
+            width: 10px;
+            height: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .testimonials-swiper .swiper-pagination-bullet-active {
+            background: linear-gradient(135deg, #a855f7 0%, #06b6d4 100%);
+            opacity: 1;
+            width: 32px;
+            border-radius: 9999px;
+        }
+        .testimonial-nav-btn {
+            transition: all 0.2s ease;
+        }
+        .testimonial-nav-btn:hover:not(.swiper-button-disabled) {
+            transform: scale(1.08);
+            border-color: rgba(168, 85, 247, 0.6);
+            background-color: rgba(168, 85, 247, 0.15);
+        }
+        .testimonial-nav-btn.swiper-button-disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+        }

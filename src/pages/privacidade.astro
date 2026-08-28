@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Política de Privacidade - RogerWeb',
+  description: 'Conheça nossa política de privacidade e como tratamos seus dados com segurança em conformidade com a LGPD.',
+  url: 'https://rogerweb.com.br/privacidade',
+};
+---
+
+<BaseLayout
+  title="Política de Privacidade - RogerWeb"
+  description="Política de Privacidade da RogerWeb em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018)."
+  keywords="política de privacidade, termos de uso, lgpd, proteção de dados, rogerweb"
+  canonical="https://rogerweb.com.br/privacidade"
+  jsonLd={jsonLd}
+>
+  <Navbar />
+
+  <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="text-xs font-semibold uppercase tracking-wider text-primary-400 bg-primary-500/10 px-4 py-1.5 rounded-full border border-primary-500/20 inline-block mb-3">
+          Transparência e Conformidade LGPD
+        </span>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold">
+          Política de <span class="gradient-text">Privacidade</span>
+        </h1>
+        <p class="text-gray-400 mt-3 text-sm">Última atualização: 24 de agosto de 2026</p>
+      </div>
+
+      <div class="bg-dark-800/60 backdrop-blur-md border border-primary-500/20 rounded-3xl p-8 sm:p-12 space-y-8 text-gray-300 leading-relaxed shadow-xl">
+        <section class="space-y-3">
+          <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+            <span class="text-primary-400">1.</span> Introdução e Objetivo
+          </h2>
+          <p>
+            A <strong>RogerWeb</strong> está comprometida com a proteção da privacidade e dos dados pessoais de seus clientes, parceiros e visitantes. Esta Política de Privacidade descreve como coletamos, utilizamos, armazenamos, compartilhamos e protegemos suas informações pessoais, em conformidade com a Lei Geral de Proteção de Dados Pessoais (LGPD - Lei nº 13.709/2018).
+          </p>
+        </section>
+
+        <section class="space-y-3 pt-6 border-t border-primary-500/10">
+          <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+            <span class="text-primary-400">2.</span> Dados Coletados
+          </h2>
+          <p>Podemos coletar os seguintes dados pessoais fornecidos diretamente por você ou de forma automática:</p>
+          <ul class="list-disc list-inside space-y-2 pl-2 text-gray-300">
+            <li><strong>Dados de Contato:</strong> Nome completo, endereço de e-mail, número de telefone/WhatsApp e empresa.</li>
+            <li><strong>Dados de Navegação:</strong> Endereço IP, tipo de navegador, páginas visitadas, tempo de permanência e dados de cookies analíticos.</li>
+            <li><strong>Informações do Projeto:</strong> Detalhes e especificações técnicas compartilhadas para elaboração de propostas comerciais.</li>
+          </ul>
+        </section>
+
+        <section class="space-y-3 pt-6 border-t border-primary-500/10">
+          <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+            <span class="text-primary-400">3.</span> Finalidade do Uso dos Dados
+          </h2>
+          <p>Os dados coletados são utilizados exclusivamente para:</p>
+          <ul class="list-disc list-inside space-y-2 pl-2 text-gray-300">
+            <li>Responder a solicitações de orçamento e prestar atendimento personalizado via formulário, e-mail ou WhatsApp;</li>
+            <li>Elaborar contratos, relatórios técnicos e executar os serviços contratados de desenvolvimento web e marketing digital;</li>
+            <li>Melhorar a experiência de navegação, performance e segurança da nossa plataforma;</li>
+            <li>Cumprir obrigações legais e regulatórias vigentes.</li>
+          </ul>
+        </section>
+
+        <section class="space-y-3 pt-6 border-t border-primary-500/10">
+          <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+            <span class="text-primary-400">4.</span> Compartilhamento de Dados
+          </h2>
+          <p>
+            A RogerWeb não comercializa dados pessoais sob nenhuma hipótese. O compartilhamento de dados ocorre apenas quando estritamente necessário para:
+          </p>
+          <ul class="list-disc list-inside space-y-2 pl-2 text-gray-300">
+            <li>Provedores de infraestrutura de servidores e hospedagem sob rigorosos termos de confidencialidade;</li>
+            <li>Ferramentas de envio de formulários e canais de comunicação com autenticação e criptografia;</li>
+            <li>Cumprimento de ordens judiciais ou exigências de autoridades competentes.</li>
+          </ul>
+        </section>
+
+        <section class="space-y-3 pt-6 border-t border-primary-500/10">
+          <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+            <span class="text-primary-400">5.</span> Segurança da Informação
+          </h2>
+          <p>
+            Adotamos medidas técnicas e administrativas adequadas para proteger os dados pessoais contra acessos não autorizados, perdas, destruição ou qualquer forma de tratamento ilícito, incluindo o uso de certificados SSL (HTTPS), criptografia e controle restrito de acesso interno.
+          </p>
+        </section>
+
+        <section class="space-y-3 pt-6 border-t border-primary-500/10">
+          <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+            <span class="text-primary-400">6.</span> Direitos do Titular (LGPD)
+          </h2>
+          <p>De acordo com o Art. 18 da LGPD, você tem direito a solicitar a qualquer momento:</p>
+          <ul class="list-disc list-inside space-y-2 pl-2 text-gray-300">
+            <li>Confirmação da existência de tratamento e acesso aos dados;</li>
+            <li>Correção de dados incompletos, inexatos ou desatualizados;</li>
+            <li>Anonimização, bloqueio ou eliminação de dados desnecessários ou tratados em desconformidade;</li>
+            <li>Revogação do consentimento previamente concedido.</li>
+          </ul>
+        </section>
+
+        <section class="space-y-3 pt-6 border-t border-primary-500/10">
+          <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+            <span class="text-primary-400">7.</span> Contato com o Encarregado de Dados
+          </h2>
+          <p>
+            Para exercer seus direitos de privacidade ou esclarecer dúvidas sobre esta Política, entre em contato através do e-mail oficial:
+          </p>
+          <div class="bg-dark-900/60 p-4 rounded-xl border border-primary-500/20 inline-block mt-2">
+            <p class="text-white font-medium">E-mail: <a href="mailto:contato@rogerweb.com.br" class="text-primary-400 hover:underline">contato@rogerweb.com.br</a></p>
+            <p class="text-gray-400 text-sm mt-1">Assunto: "Privacidade e Proteção de Dados - LGPD"</p>
+          </div>
+        </section>
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="/" class="inline-flex items-center gap-2 text-primary-400 hover:text-primary-300 font-medium transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+          </svg>
+          Voltar para a Página Inicial
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer variant="simple" />
+  <WhatsAppFloat />
+</BaseLayout>

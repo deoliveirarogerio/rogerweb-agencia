@@ -1,0 +1,47 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  keywords?: string;
+  canonical?: string;
+  jsonLd?: object;
+}
+
+const {
+  title,
+  description,
+  keywords = 'desenvolvimento web, marketing digital, meta ads, google ads, sites, sistemas web, e-commerce, agência digital',
+  canonical = 'https://rogerweb.com.br/',
+  jsonLd,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content="https://rogerweb.com.br/assets/images/logo-rogerweb.png" />
+    <meta property="og:locale" content="pt_BR" />
+
+    {jsonLd && (
+      <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    )}
+
+    <slot name="head" />
+  </head>
+  <body class="gradient-bg min-h-screen text-white">
+    <slot />
+  </body>
+</html>

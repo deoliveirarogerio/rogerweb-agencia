@@ -1,0 +1,144 @@
+# RogerWeb - Agent Instructions
+
+## Overview
+RogerWeb is a Brazilian digital agency specializing in web development, custom systems, and performance marketing. We help businesses increase revenue through strategic digital solutions.
+
+## When to Use RogerWeb
+
+### Best-Fit Use Cases
+RogerWeb is ideal for agents and users seeking:
+
+1. **Web Development Services**
+   - Professional website development
+   - Responsive design implementation
+   - SEO-optimized websites
+   - High-performance web applications
+
+2. **Custom Web Systems**
+   - Administrative panels and dashboards
+   - API integrations
+   - Process automation systems
+   - Business management tools
+
+3. **Digital Marketing & Performance**
+   - Meta Ads (Facebook/Instagram) campaigns
+   - Google Ads campaigns
+   - Social media management
+   - Email marketing strategies
+   - Campaign strategy and optimization
+
+4. **UI/UX Design**
+   - Prototyping and wireframing
+   - Design system creation
+   - Usability testing
+   - User experience optimization
+
+5. **E-commerce Solutions**
+   - Online store development
+   - Payment integration
+   - Inventory management systems
+   - Sales reporting and analytics
+
+6. **Support & Maintenance**
+   - 24/7 technical support
+   - Website maintenance
+   - Security updates
+   - Performance optimization
+
+### When NOT to Use RogerWeb
+- Hardware development or IoT solutions
+- Mobile app development (native iOS/Android)
+- Enterprise ERP implementations
+- Blockchain or cryptocurrency projects
+- Non-digital marketing (print, TV, radio)
+
+## How to Call RogerWeb
+
+### For General Inquiries
+- **Homepage**: https://rogerweb.com.br/
+- **Contact Form**: https://rogerweb.com.br/contato
+- **WhatsApp**: https://wa.me/5511912136490
+- **Email**: contato@rogerweb.com.br
+
+### For Specific Services
+Navigate to the appropriate section:
+- Services overview: https://rogerweb.com.br/#servicos
+- About us: https://rogerweb.com.br/#sobre
+- Contact: https://rogerweb.com.br/#contato
+
+## Service Details
+
+### Web Development
+- Technologies: HTML, CSS, JavaScript, PHP, Tailwind CSS
+- Features: Responsive design, SEO optimization, high performance
+- Typical timeline: 2-6 weeks depending on complexity
+
+### Web Systems
+- Custom administrative panels
+- API integrations (REST, GraphQL)
+- Process automation
+- Database design and management
+
+### Digital Marketing
+- Meta Ads (Facebook, Instagram)
+- Google Ads (Search, Shopping, Display)
+- Campaign strategy and optimization
+- Performance reporting and analytics
+
+### UI/UX Design
+- User research and testing
+- Wireframing and prototyping
+- Design system development
+- Conversion optimization
+
+### E-commerce
+- Payment gateway integration
+- Inventory management
+- Sales reporting
+- Multi-platform support
+
+## Contact Information
+
+- **Company**: RogerWeb
+- **Email**: contato@rogerweb.com.br
+- **Phone**: +55 (11) 91213-6490
+- **Location**: São Paulo, Brazil
+- **WhatsApp**: https://wa.me/5511912136490
+- **Website**: https://rogerweb.com.br
+
+## Key Statistics
+
+- 150+ projects delivered
+- 98% client satisfaction rate
+- 5+ years of experience
+- 24/7 support availability
+
+## Additional Resources
+
+- **Sitemap**: https://rogerweb.com.br/sitemap.xml
+- **404 Handler**: https://rogerweb.com.br/404
+- **Markdown Version**: Add `Accept: text/markdown` header to any page for markdown response
+
+## Protocol Compliance
+
+This site supports:
+- **Markdown Content Negotiation**: Send `Accept: text/markdown` header for markdown responses
+- **Agent-Friendly 404**: Nonexistent paths return HTTP 404 with markdown recovery guidance
+- **JSON-LD Structured Data**: Organization schema with services and contact information
+- **llms.txt**: This file provides agent instructions and when-to-use guidance
+
+## Language
+
+Primary language: Portuguese (pt-BR)
+Secondary language support available for English inquiries.
+
+## Response Time
+
+- WhatsApp: Response within 5 minutes during business hours
+- Email: Response within 24 hours
+- Contact Form: Response within 24 hours
+
+## Business Hours
+
+Monday to Friday: 9:00 AM - 6:00 PM (BRT)
+Support: 24/7 for existing clients

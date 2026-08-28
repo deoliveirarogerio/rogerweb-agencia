@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'Sobre a RogerWeb',
+  description: 'Conheça a história, missão e valores da RogerWeb. Especialistas em desenvolvimento web e marketing digital de alta performance.',
+  url: 'https://rogerweb.com.br/sobre',
+};
+---
+
+<BaseLayout
+  title="Sobre a RogerWeb - Agência de Desenvolvimento e Marketing Digital"
+  description="Conheça a história, missão e valores da RogerWeb. Uma agência digital brasileira comprometida em transformar negócios através de tecnologia e marketing."
+  keywords="sobre rogerweb, agência digital são paulo, história, missão, valores, desenvolvimento web"
+  canonical="https://rogerweb.com.br/sobre"
+  jsonLd={jsonLd}
+>
+  <Navbar currentPage="sobre" />
+
+  <!-- Hero Header -->
+  <section class="pt-32 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 bg-primary-500/5"></div>
+    <div class="max-w-4xl mx-auto text-center relative">
+      <span class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary-400 bg-primary-500/10 px-4 py-1.5 rounded-full border border-primary-500/20 inline-block mb-4">
+        Conheça Nossa Trajetória
+      </span>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+        Sobre a <span class="gradient-text">RogerWeb</span>
+      </h1>
+      <p class="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        Transformamos ideias em plataformas robustas e estratégias de marketing digital focadas em crescimento e rentabilidade real.
+      </p>
+    </div>
+  </section>
+
+  <!-- Stats Strip -->
+  <section class="py-10 px-4 sm:px-6 lg:px-8 bg-dark-800/40 border-y border-primary-500/10">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div class="p-4">
+          <div class="text-3xl sm:text-4xl font-extrabold gradient-text mb-1">150+</div>
+          <div class="text-sm text-gray-400">Projetos Concluídos</div>
+        </div>
+        <div class="p-4">
+          <div class="text-3xl sm:text-4xl font-extrabold gradient-text mb-1">98%</div>
+          <div class="text-sm text-gray-400">Clientes Satisfeitos</div>
+        </div>
+        <div class="p-4">
+          <div class="text-3xl sm:text-4xl font-extrabold gradient-text mb-1">5+ Anos</div>
+          <div class="text-sm text-gray-400">Atuando no Mercado</div>
+        </div>
+        <div class="p-4">
+          <div class="text-3xl sm:text-4xl font-extrabold gradient-text mb-1">24/7</div>
+          <div class="text-sm text-gray-400">Suporte Dedicado</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Grid -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto space-y-12">
+      
+      <!-- Story & Mission Cards -->
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-dark-800/50 backdrop-blur-sm border border-primary-500/20 rounded-3xl p-8 card-hover flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 bg-primary-500/20 rounded-2xl flex items-center justify-center text-primary-400 mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+            </div>
+            <h2 class="text-2xl font-bold mb-4 text-white">Nossa História</h2>
+            <p class="text-gray-300 leading-relaxed">
+              A RogerWeb nasceu da paixão por tecnologia aplicada aos negócios. Ao longo de 5 anos de atuação contínua, nos especializamos em criar ecossistemas digitais completos: desde sites institucionais de alta conversão até sistemas operacionais sob medida e campanhas de marketing de performance.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 backdrop-blur-sm border border-primary-500/20 rounded-3xl p-8 card-hover flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 bg-accent-500/20 rounded-2xl flex items-center justify-center text-accent-400 mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <h2 class="text-2xl font-bold mb-4 text-white">Nossa Missão</h2>
+            <p class="text-gray-300 leading-relaxed">
+              Capacitar e acelerar empresas através de soluções digitais inteligentes, modernas e focadas em retorno sobre o investimento (ROI). Não desenvolvemos apenas código; entregamos canais eficientes de atração de clientes e automação de operações.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Values -->
+      <div class="bg-dark-800/50 backdrop-blur-sm border border-primary-500/20 rounded-3xl p-8 sm:p-10">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-6 text-white text-center">Nossos Pilares e Valores</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-dark-900/50 p-5 rounded-2xl border border-primary-500/10">
+            <h3 class="text-lg font-bold text-primary-400 mb-2">Transparência</h3>
+            <p class="text-gray-300 text-sm">Comunicação clara, relatórios precisos e acompanhamento contínuo de cada entrega.</p>
+          </div>
+          <div class="bg-dark-900/50 p-5 rounded-2xl border border-primary-500/10">
+            <h3 class="text-lg font-bold text-primary-400 mb-2">Compromisso</h3>
+            <p class="text-gray-300 text-sm">Dedicação total para bater metas e garantir a satisfação plena de nossos clientes parceiros.</p>
+          </div>
+          <div class="bg-dark-900/50 p-5 rounded-2xl border border-primary-500/10">
+            <h3 class="text-lg font-bold text-primary-400 mb-2">Inovação</h3>
+            <p class="text-gray-300 text-sm">Constante atualização tecnológica para utilizar as ferramentas mais rápidas e seguras do mercado.</p>
+          </div>
+          <div class="bg-dark-900/50 p-5 rounded-2xl border border-primary-500/10">
+            <h3 class="text-lg font-bold text-primary-400 mb-2">Qualidade</h3>
+            <p class="text-gray-300 text-sm">Atenção rigorosa aos detalhes em design responsivo, performance e segurança de dados.</p>
+          </div>
+          <div class="bg-dark-900/50 p-5 rounded-2xl border border-primary-500/10">
+            <h3 class="text-lg font-bold text-primary-400 mb-2">Parceria Duradoura</h3>
+            <p class="text-gray-300 text-sm">Construímos relações sólidas de longo prazo, com 95% de retenção contratual de suporte.</p>
+          </div>
+          <div class="bg-dark-900/50 p-5 rounded-2xl border border-primary-500/10">
+            <h3 class="text-lg font-bold text-primary-400 mb-2">Foco em ROI</h3>
+            <p class="text-gray-300 text-sm">Cada funcionalidade é pensada para maximizar as vendas e a eficiência operacional da sua empresa.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Approach & Differentiation -->
+      <div class="bg-gradient-to-r from-primary-950/40 via-dark-800/70 to-primary-950/40 border border-primary-500/30 rounded-3xl p-8 sm:p-12 text-center shadow-2xl">
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">
+          Por que nossos clientes crescem em média <span class="gradient-text">200%</span> no 1º ano?
+        </h2>
+        <p class="text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
+          Nossa metodologia une design moderno, velocidade extrema e estratégias assertivas de tráfego pago (Meta Ads e Google Ads). Compreendemos seu mercado a fundo antes de escrever a primeira linha de código.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a
+            href="/contato"
+            class="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all hover:scale-105 shadow-lg shadow-primary-600/30 pulse-glow"
+          >
+            Falar com um Especialista
+          </a>
+          <a
+            href="/#portfolio"
+            class="border border-primary-500/40 text-primary-300 hover:bg-primary-500/10 px-8 py-4 rounded-full font-semibold text-lg transition-all"
+          >
+            Ver Nosso Portfólio
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <Footer />
+  <WhatsAppFloat />
+</BaseLayout>

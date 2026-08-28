@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+---
+
+<BaseLayout
+  title="Página Não Encontrada (404) - RogerWeb"
+  description="Desculpe, a página que você está procurando não existe ou foi movida."
+  canonical="https://rogerweb.com.br/404"
+>
+  <Navbar />
+
+  <section class="min-h-[85vh] flex items-center justify-center pt-28 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 bg-primary-500/5"></div>
+    <div class="max-w-3xl mx-auto text-center relative">
+      <div class="relative inline-block mb-8">
+        <img
+          src="/assets/images/mascote-rogerweb.png"
+          alt="Mascote RogerWeb 404"
+          class="mascot-float max-w-xs sm:max-w-sm w-auto h-auto mx-auto"
+        />
+        <div class="absolute -inset-4 bg-gradient-to-r from-primary-500/30 to-accent-500/30 rounded-full blur-3xl -z-10"></div>
+      </div>
+
+      <div class="inline-block bg-primary-500/10 border border-primary-500/30 px-4 py-1.5 rounded-full text-primary-400 font-semibold text-sm mb-4">
+        Erro 404
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4">
+        Ops! Página não <span class="gradient-text">encontrada</span>
+      </h1>
+
+      <p class="text-lg text-gray-300 max-w-xl mx-auto mb-8">
+        O link que você acessou pode estar quebrado, desatualizado ou a página pode ter sido transferida para outro endereço.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="/"
+          class="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3.5 rounded-full font-semibold transition-all hover:scale-105 shadow-lg shadow-primary-600/30 inline-flex items-center gap-2"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+          </svg>
+          Ir para o Início
+        </a>
+        <a
+          href="/#servicos"
+          class="border border-primary-500/40 text-primary-300 hover:bg-primary-500/10 px-8 py-3.5 rounded-full font-semibold transition-all"
+        >
+          Nossos Serviços
+        </a>
+        <a
+          href="/contato"
+          class="border border-accent-500/40 text-accent-400 hover:bg-accent-500/10 px-8 py-3.5 rounded-full font-semibold transition-all"
+        >
+          Falar Conosco
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer variant="simple" />
+  <WhatsAppFloat />
+</BaseLayout>

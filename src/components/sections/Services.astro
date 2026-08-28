@@ -1,0 +1,124 @@
+---
+const services = [
+  {
+    title: 'Desenvolvimento de Sites',
+    description: 'Sites que convertem visitantes em clientes. Nossos clientes aumentaram suas taxas de conversão em até 200% com designs otimizados para vendas.',
+    iconBg: 'bg-primary-500/20',
+    iconText: 'text-primary-400',
+    checkText: 'text-primary-400',
+    icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 19h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
+    features: ['Design Responsivo', 'SEO Otimizado', 'Alta Performance'],
+  },
+  {
+    title: 'Sistemas Web',
+    description: 'Automatize processos e economize até 40% do tempo da sua equipe. Sistemas que reduzem custos operacionais e aumentam produtividade.',
+    iconBg: 'bg-accent-500/20',
+    iconText: 'text-accent-400',
+    checkText: 'text-accent-400',
+    icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
+    features: ['Painéis Administrativos', 'Integrações API', 'Automação de Processos'],
+  },
+  {
+    title: 'Marketing Digital',
+    description: 'Estratégias que geram leads qualificados. Nossos clientes obtêm média de 50 leads qualificados por mês com ROI de até 10x.',
+    iconBg: 'bg-primary-500/20',
+    iconText: 'text-primary-400',
+    checkText: 'text-primary-400',
+    icon: 'M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z',
+    features: ['Gestão de Redes Sociais', 'Tráfego Pago', 'E-mail Marketing'],
+  },
+  {
+    title: 'Design UI/UX',
+    description: 'Designs que aumentam o tempo de permanência em 150%. Interfaces intuitivas que reduzem o abandono e maximizam conversões.',
+    iconBg: 'bg-accent-500/20',
+    iconText: 'text-accent-400',
+    checkText: 'text-accent-400',
+    icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01',
+    features: ['Prototipagem', 'Design System', 'Testes de Usabilidade'],
+  },
+  {
+    title: 'E-commerce',
+    description: 'Lojas que vendem enquanto você dorme. Nossos clientes aumentaram faturamento em 250% em média no primeiro ano de operação.',
+    iconBg: 'bg-primary-500/20',
+    iconText: 'text-primary-400',
+    checkText: 'text-primary-400',
+    icon: 'M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z',
+    features: ['Integração Pagamentos', 'Gestão de Estoque', 'Relatórios de Vendas'],
+  },
+  {
+    title: 'Suporte e Manutenção',
+    description: 'Seu site sempre no ar com 99.9% de uptime. Respostas em menos de 2 horas para garantir que você nunca pare de vender.',
+    iconBg: 'bg-accent-500/20',
+    iconText: 'text-accent-400',
+    checkText: 'text-accent-400',
+    icon: 'M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z',
+    features: ['Atendimento 24/7', 'Backups Diários', 'Atualizações de Segurança'],
+  },
+  {
+    title: 'Meta Ads',
+    description: 'Alcance milhões de clientes potenciais. Nossas campanhas geram até 5x mais leads com CTR médio de 8% e custo por aquisição reduzido em 60%.',
+    iconBg: 'bg-primary-500/20',
+    iconText: 'text-primary-400',
+    checkText: 'text-primary-400',
+    icon: 'M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z',
+    features: ['Facebook Ads', 'Instagram Ads', 'Segmentação Avançada'],
+  },
+  {
+    title: 'Google Ads',
+    description: 'Capture clientes quando estão procurando exatamente o que você vende. Taxa de conversão de 15% em média e ROI de 8x no primeiro trimestre.',
+    iconBg: 'bg-accent-500/20',
+    iconText: 'text-accent-400',
+    checkText: 'text-accent-400',
+    icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
+    features: ['Pesquisa Google', 'Google Shopping', 'Display Network'],
+  },
+  {
+    title: 'Estratégias de Campanhas',
+    description: 'Planejamento baseado em dados que maximiza cada centavo investido. Otimização contínua para aumentar ROI em média 300% em 90 dias.',
+    iconBg: 'bg-primary-500/20',
+    iconText: 'text-primary-400',
+    checkText: 'text-primary-400',
+    icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
+    features: ['Análise de Público', 'Otimização de Conversão', 'Relatórios de Performance'],
+  },
+];
+
+const checkIcon = 'M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z';
+---
+
+<section id="servicos" class="py-20 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+        Nossos <span class="gradient-text">Serviços</span>
+      </h2>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+        Soluções completas para levar seu negócio ao próximo nível
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map((service) => (
+        <div class="card-hover bg-dark-800/50 backdrop-blur-sm border border-primary-500/20 rounded-2xl p-8">
+          <div class={`w-16 h-16 ${service.iconBg} rounded-xl flex items-center justify-center mb-6`}>
+            <svg class={`w-8 h-8 ${service.iconText}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.icon} />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-white">{service.title}</h3>
+          <p class="text-gray-300 mb-6">{service.description}</p>
+          <ul class="space-y-2 text-gray-400">
+            {service.features.map((feature) => (
+              <li class="flex items-center">
+                <svg class={`w-5 h-5 ${service.checkText} mr-2`} fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d={checkIcon} clip-rule="evenodd" />
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

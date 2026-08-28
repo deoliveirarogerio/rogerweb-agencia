@@ -1,0 +1,254 @@
+---
+interface Project {
+  title: string;
+  category: 'sistemas' | 'sites' | 'ecommerce';
+  categoryLabel: string;
+  description: string;
+  image: string;
+  tags: string[];
+  metrics?: string;
+}
+
+const projects: Project[] = [
+  {
+    title: 'APECIND',
+    category: 'sistemas',
+    categoryLabel: 'Sistemas Web',
+    description: 'Portal institucional e sistema completo para gestão de laudos e treinamentos de segurança do trabalho.',
+    image: '/assets/images/portfolio-apecind.png',
+    tags: ['Sistema Web', 'Segurança do Trabalho', 'Portal'],
+    metrics: '+180% em produtividade',
+  },
+  {
+    title: 'Arena Gestão',
+    category: 'sistemas',
+    categoryLabel: 'Sistemas Web',
+    description: 'Plataforma para gerenciamento de complexos esportivos, controle de reservas de quadras e financeiro em tempo real.',
+    image: '/assets/images/portfolio-arena.png',
+    tags: ['Dashboard', 'Reservas Online', 'Gestão Financeira'],
+    metrics: '99.9% taxa de ocupação',
+  },
+  {
+    title: 'Baixada Esportes',
+    category: 'sites',
+    categoryLabel: 'Sites & Portais',
+    description: 'Portal de notícias esportivas com alta velocidade de carregamento, cobertura ao vivo e otimização para SEO.',
+    image: '/assets/images/portfolio-baixada-esportes.png',
+    tags: ['Portal de Notícias', 'SEO Avançado', 'Alta Performance'],
+    metrics: '+120k acessos/mês',
+  },
+  {
+    title: 'Barber Club',
+    category: 'sistemas',
+    categoryLabel: 'Sistemas Web',
+    description: 'Aplicativo web de auto-agendamento e gestão para barbearias com integração direta ao WhatsApp.',
+    image: '/assets/images/portfolio-barber.png',
+    tags: ['Agendamento Online', 'WhatsApp API', 'CRM'],
+    metrics: 'Zero filas de espera',
+  },
+  {
+    title: 'Clinic Saúde',
+    category: 'sistemas',
+    categoryLabel: 'Sistemas Web',
+    description: 'Software médico para clínicas com prontuário eletrônico seguro, controle de consultas e faturamento.',
+    image: '/assets/images/portfolio-clinic.png',
+    tags: ['Saúde & Clínicas', 'Prontuário Digital', 'LGPD'],
+    metrics: 'Redução de 45% nas faltas',
+  },
+  {
+    title: 'Concily Finanças',
+    category: 'sistemas',
+    categoryLabel: 'Sistemas Web',
+    description: 'Plataforma inteligente para conciliação bancária de cartões e gateways de pagamento com relatórios analíticos.',
+    image: '/assets/images/portfolio-concily.png',
+    tags: ['Fintech', 'Conciliação Bancária', 'Relatórios'],
+    metrics: '100% precisão contábil',
+  },
+  {
+    title: 'iBusca ABC',
+    category: 'sites',
+    categoryLabel: 'Sites & Portais',
+    description: 'Guia comercial regional conectando empresas locais a milhares de consumidores do Grande ABC.',
+    image: '/assets/images/portfolio-ibuscaabc.png',
+    tags: ['Guia Comercial', 'Geolocalização', 'Diretório'],
+    metrics: '+500 empresas cadastradas',
+  },
+  {
+    title: 'UniEasy EAD',
+    category: 'sistemas',
+    categoryLabel: 'Sistemas Web',
+    description: 'Ambiente virtual de aprendizagem (LMS) e gestão educacional para cursos livres e instituições.',
+    image: '/assets/images/portfolio-unieasy.png',
+    tags: ['Plataforma EAD', 'Área de Membros', 'Vídeos'],
+    metrics: '+15.000 alunos ativos',
+  },
+  {
+    title: 'UniLine Produtos',
+    category: 'ecommerce',
+    categoryLabel: 'E-commerce & Catálogo',
+    description: 'Catálogo de produtos digital e e-commerce corporativo com cotações ágeis e controle de estoque.',
+    image: '/assets/images/portfolio-uniline.png',
+    tags: ['E-commerce', 'Catálogo B2B', 'Cotação Online'],
+    metrics: '+240% em conversões',
+  },
+];
+---
+
+<section id="portfolio" class="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+  <div class="absolute inset-0 bg-primary-500/5"></div>
+  <div class="max-w-7xl mx-auto relative">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+        Nosso <span class="gradient-text">Portfólio</span> de Sucesso
+      </h2>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+        Conheça alguns dos projetos que desenvolvemos e que geram resultados concretos diariamente
+      </p>
+
+      <!-- Category Filter Tabs -->
+      <div class="flex flex-wrap justify-center gap-3 mt-8" id="portfolio-filters">
+        <button
+          type="button"
+          class="portfolio-filter-btn active px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-primary-600 text-white shadow-lg shadow-primary-500/25"
+          data-filter="all"
+        >
+          Todos os Projetos
+        </button>
+        <button
+          type="button"
+          class="portfolio-filter-btn px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-dark-800/80 text-gray-300 hover:text-white hover:bg-primary-500/20 border border-primary-500/20"
+          data-filter="sistemas"
+        >
+          Sistemas Web
+        </button>
+        <button
+          type="button"
+          class="portfolio-filter-btn px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-dark-800/80 text-gray-300 hover:text-white hover:bg-primary-500/20 border border-primary-500/20"
+          data-filter="sites"
+        >
+          Sites & Portais
+        </button>
+        <button
+          type="button"
+          class="portfolio-filter-btn px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-dark-800/80 text-gray-300 hover:text-white hover:bg-primary-500/20 border border-primary-500/20"
+          data-filter="ecommerce"
+        >
+          E-commerce & Catálogo
+        </button>
+      </div>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
+      {projects.map((project) => (
+        <div
+          class="portfolio-item card-hover bg-dark-800/60 backdrop-blur-sm border border-primary-500/20 rounded-2xl overflow-hidden flex flex-col transition-all duration-500"
+          data-category={project.category}
+        >
+          <div class="relative overflow-hidden group aspect-video bg-dark-900">
+            <img
+              src={project.image}
+              alt={project.title}
+              class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+            
+            {project.metrics && (
+              <div class="absolute bottom-3 left-3 bg-dark-900/90 backdrop-blur-md px-3 py-1 rounded-full border border-primary-500/30 text-xs font-semibold text-accent-400 flex items-center gap-1.5 shadow-lg">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
+                {project.metrics}
+              </div>
+            )}
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-semibold uppercase tracking-wider text-primary-400 bg-primary-500/10 px-3 py-1 rounded-full">
+                  {project.categoryLabel}
+                </span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary-300 transition-colors">
+                {project.title}
+              </h3>
+              <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                {project.description}
+              </p>
+            </div>
+
+            <div>
+              <div class="flex flex-wrap gap-1.5 pt-4 border-t border-primary-500/10">
+                {project.tags.map((tag) => (
+                  <span class="text-xs text-gray-400 bg-dark-900/60 px-2.5 py-1 rounded-md border border-primary-500/10">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA Box -->
+    <div class="mt-16 text-center bg-gradient-to-r from-primary-900/30 via-dark-800/60 to-primary-900/30 border border-primary-500/30 rounded-3xl p-8 sm:p-12 shadow-2xl backdrop-blur-md">
+      <h3 class="text-2xl sm:text-3xl font-bold text-white mb-4">
+        Quer um projeto desse nível para o <span class="gradient-text">seu negócio</span>?
+      </h3>
+      <p class="text-gray-300 max-w-2xl mx-auto mb-8 text-base sm:text-lg">
+        Entre em contato agora mesmo e conte sua ideia. Nós cuidamos do desenvolvimento completo com tecnologia de ponta.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a
+          href="#contato"
+          class="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg shadow-primary-600/30 pulse-glow inline-flex items-center justify-center gap-2"
+        >
+          <span>Solicitar Proposta Gratuita</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const filterButtons = document.querySelectorAll<HTMLButtonElement>('.portfolio-filter-btn');
+  const projectItems = document.querySelectorAll<HTMLElement>('.portfolio-item');
+
+  filterButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+
+      // Update active button classes
+      filterButtons.forEach((b) => {
+        b.classList.remove('bg-primary-600', 'text-white', 'shadow-lg', 'shadow-primary-500/25', 'active');
+        b.classList.add('bg-dark-800/80', 'text-gray-300', 'border', 'border-primary-500/20');
+      });
+      btn.classList.remove('bg-dark-800/80', 'text-gray-300', 'border', 'border-primary-500/20');
+      btn.classList.add('bg-primary-600', 'text-white', 'shadow-lg', 'shadow-primary-500/25', 'active');
+
+      // Filter project cards
+      projectItems.forEach((item) => {
+        const category = item.getAttribute('data-category');
+        if (filter === 'all' || category === filter) {
+          item.style.display = 'flex';
+          setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'scale(1)';
+          }, 10);
+        } else {
+          item.style.opacity = '0';
+          item.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            item.style.display = 'none';
+          }, 300);
+        }
+      });
+    });
+  });
+</script>

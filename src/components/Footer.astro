@@ -1,0 +1,99 @@
+---
+interface Props {
+  variant?: 'full' | 'simple';
+}
+
+const { variant = 'full' } = Astro.props;
+---
+
+{variant === 'full' ? (
+  <footer class="py-14 px-4 sm:px-6 lg:px-8 border-t border-primary-500/20 bg-dark-900/80">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+        <div class="md:col-span-1 space-y-4">
+          <a href="/" class="inline-block">
+            <img src="/assets/images/logo-rogerweb.png" alt="RogerWeb Logo" class="h-10 w-auto" />
+          </a>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Agência digital especializada em desenvolvimento de sites, sistemas web modernos e marketing de alta performance.
+          </p>
+          <div class="pt-2">
+            <a
+              href="https://wa.me/5511912136490"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-sm text-green-400 hover:text-green-300 font-medium transition-colors"
+            >
+              <span>Atendimento via WhatsApp</span>
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-base font-semibold text-white mb-4">Serviços</h4>
+          <ul class="space-y-2.5 text-sm text-gray-400">
+            <li><a href="/#servicos" class="hover:text-primary-400 transition-colors">Desenvolvimento de Sites</a></li>
+            <li><a href="/#servicos" class="hover:text-primary-400 transition-colors">Sistemas Web Sob Medida</a></li>
+            <li><a href="/#servicos" class="hover:text-primary-400 transition-colors">E-commerce & Lojas Virtuais</a></li>
+            <li><a href="/#servicos" class="hover:text-primary-400 transition-colors">Meta Ads & Google Ads</a></li>
+            <li><a href="/#servicos" class="hover:text-primary-400 transition-colors">Design UI/UX & Prototipagem</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-base font-semibold text-white mb-4">Navegação</h4>
+          <ul class="space-y-2.5 text-sm text-gray-400">
+            <li><a href="/" class="hover:text-primary-400 transition-colors">Página Inicial</a></li>
+            <li><a href="/#servicos" class="hover:text-primary-400 transition-colors">Nossos Serviços</a></li>
+            <li><a href="/#portfolio" class="hover:text-primary-400 transition-colors">Portfólio de Projetos</a></li>
+            <li><a href="/sobre" class="hover:text-primary-400 transition-colors">Sobre a RogerWeb</a></li>
+            <li><a href="/contato" class="hover:text-primary-400 transition-colors">Fale Conosco</a></li>
+            <li><a href="/privacidade" class="hover:text-primary-400 transition-colors">Política de Privacidade</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-base font-semibold text-white mb-4">Contato & Suporte</h4>
+          <ul class="space-y-2.5 text-sm text-gray-400">
+            <li>
+              <span class="block text-xs uppercase tracking-wider text-gray-500 font-semibold">E-mail:</span>
+              <a href="mailto:contato@rogerweb.com.br" class="hover:text-primary-400 transition-colors">contato@rogerweb.com.br</a>
+            </li>
+            <li>
+              <span class="block text-xs uppercase tracking-wider text-gray-500 font-semibold">WhatsApp:</span>
+              <a href="https://wa.me/5511912136490" class="hover:text-primary-400 transition-colors">(11) 91213-6490</a>
+            </li>
+            <li>
+              <span class="block text-xs uppercase tracking-wider text-gray-500 font-semibold">Localização:</span>
+              <span class="text-gray-300">São Paulo - SP, Brasil</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-primary-500/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+        <p>&copy; {new Date().getFullYear()} RogerWeb. Todos os direitos reservados.</p>
+        <div class="flex items-center space-x-6">
+          <a href="/privacidade" class="hover:text-primary-400 transition-colors">Privacidade</a>
+          <a href="/contato" class="hover:text-primary-400 transition-colors">Contato</a>
+          <a href="/sitemap.xml" target="_blank" class="hover:text-primary-400 transition-colors">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+) : (
+  <footer class="bg-dark-900/60 border-t border-primary-500/20 py-8 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-sm text-gray-400">
+      <p>&copy; {new Date().getFullYear()} RogerWeb. Todos os direitos reservados.</p>
+      <div class="flex items-center space-x-6">
+        <a href="/" class="hover:text-primary-400 transition-colors">Início</a>
+        <a href="/sobre" class="hover:text-primary-400 transition-colors">Sobre</a>
+        <a href="/contato" class="hover:text-primary-400 transition-colors">Contato</a>
+        <a href="/privacidade" class="hover:text-primary-400 transition-colors">Privacidade</a>
+      </div>
+    </div>
+  </footer>
+)}

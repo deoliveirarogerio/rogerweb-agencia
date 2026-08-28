@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import Services from '../components/sections/Services.astro';
+import Portfolio from '../components/sections/Portfolio.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
+import ContactSection from '../components/sections/ContactSection.astro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'RogerWeb',
+  description: 'Agência digital especializada em desenvolvimento web, sistemas e marketing de performance',
+  url: 'https://rogerweb.com.br',
+  logo: 'https://rogerweb.com.br/assets/images/logo-rogerweb.png',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+55-11-91213-6490',
+    contactType: 'sales',
+    email: 'contato@rogerweb.com.br',
+    availableLanguage: ['Portuguese'],
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'São Paulo',
+    addressCountry: 'BR',
+  },
+  sameAs: ['https://wa.me/5511912136490'],
+  service: [
+    { '@type': 'Service', name: 'Desenvolvimento de Sites', description: 'Sites profissionais, responsivos e otimizados para conversão' },
+    { '@type': 'Service', name: 'Sistemas Web', description: 'Sistemas personalizados para automatizar processos' },
+    { '@type': 'Service', name: 'Marketing Digital', description: 'Estratégias completas de marketing para aumentar visibilidade' },
+    { '@type': 'Service', name: 'Meta Ads', description: 'Campanhas estratégicas no Facebook e Instagram' },
+    { '@type': 'Service', name: 'Google Ads', description: 'Anúncios no Google para capturar clientes' },
+    { '@type': 'Service', name: 'E-commerce', description: 'Lojas virtuais completas e integradas' },
+  ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    reviewCount: '150',
+  },
+};
+---
+
+<BaseLayout
+  title="RogerWeb - Agência de Desenvolvimento e Marketing Digital"
+  description="RogerWeb é uma agência digital especializada em desenvolvimento web, sistemas e marketing de performance. Aumente suas vendas com estratégias digitais que funcionam."
+  canonical="https://rogerweb.com.br/"
+  jsonLd={jsonLd}
+>
+  <Navbar currentPage="home" />
+
+  <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 bg-primary-500/5"></div>
+    <div class="max-w-7xl mx-auto relative">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-8">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+            Aumente suas <span class="gradient-text">vendas</span> com estratégias digitais que <span class="gradient-text">realmente funcionam</span>
+          </h1>
+          <p class="text-xl text-gray-300 leading-relaxed">
+            Mais de 150 empresas já aumentaram seus faturamentos em até 300% com nossas soluções de desenvolvimento web e marketing de performance. Resultados comprovados em 30 dias.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#contato" class="bg-primary-600 hover:bg-primary-700 px-8 py-4 rounded-full font-semibold text-lg transition-all hover:scale-105 text-center pulse-glow">
+              Quero Aumentar Minhas Vendas
+            </a>
+            <a href="#depoimentos" class="border-2 border-primary-500 text-primary-400 hover:bg-primary-500/10 px-8 py-4 rounded-full font-semibold text-lg transition-all text-center">
+              Ver Depoimentos de Clientes
+            </a>
+          </div>
+        </div>
+        <div class="relative flex justify-center">
+          <img src="/assets/images/mascote-rogerweb.png" alt="Mascote RogerWeb" class="mascot-float max-w-md w-auto h-auto" />
+          <div class="absolute -inset-4 bg-gradient-to-r from-primary-500/20 to-accent-500/20 rounded-full blur-3xl"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Services />
+
+  <Portfolio />
+
+  <section id="sobre" class="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-primary-500/5 to-transparent"></div>
+    <div class="max-w-7xl mx-auto relative">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="order-2 lg:order-1 flex justify-center">
+          <div class="relative">
+            <img src="/assets/images/mascote-notebook.jpg" alt="Mascote RogerWeb" class="mascot-float max-w-md w-auto h-auto" />
+            <div class="absolute -inset-4 bg-gradient-to-r from-accent-500/20 to-primary-500/20 rounded-full blur-3xl"></div>
+          </div>
+        </div>
+        <div class="order-1 lg:order-2 space-y-6">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold">
+            Por que mais de <span class="gradient-text">150 empresas</span> confiam na RogerWeb?
+          </h2>
+          <p class="text-xl text-gray-300 leading-relaxed">
+            Não entregamos apenas projetos, entregamos resultados que transformam negócios. Nossos clientes aumentam faturamento em média 200% no primeiro ano de parceria.
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-primary-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-lg font-semibold text-white">Resultados em 30 Dias</h4>
+                <p class="text-gray-400">Primeiros resultados visíveis em apenas 30 dias. Projetos entregues 40% mais rápido que o mercado.</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-accent-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-lg font-semibold text-white">ROI Garantido</h4>
+                <p class="text-gray-400">Métricas claras e relatórios transparentes. Se não atingirmos metas, revisamos estratégias sem custo adicional.</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-primary-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-lg font-semibold text-white">Parceria de Longo Prazo</h4>
+                <p class="text-gray-400">95% dos nossos clientes renovam contratos. Acompanhamento contínuo para crescimento sustentável.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-primary-500/10">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="text-4xl lg:text-5xl font-bold gradient-text mb-2">150+</div>
+          <div class="text-gray-300">Projetos Entregues</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl lg:text-5xl font-bold gradient-text mb-2">98%</div>
+          <div class="text-gray-300">Clientes Satisfeitos</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl lg:text-5xl font-bold gradient-text mb-2">5+</div>
+          <div class="text-gray-300">Anos de Experiência</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl lg:text-5xl font-bold gradient-text mb-2">24/7</div>
+          <div class="text-gray-300">Suporte Disponível</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Testimonials />
+  <ContactSection />
+  <Footer />
+  <WhatsAppFloat />
+</BaseLayout>
