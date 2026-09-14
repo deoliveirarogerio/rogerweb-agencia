@@ -65,9 +65,28 @@
       required
     ></textarea>
   </div>
+
+  <div class="space-y-3">
+    <label class="flex items-start gap-3 cursor-pointer select-none" for="lgpd-consent">
+      <input
+        type="checkbox"
+        id="lgpd-consent"
+        name="lgpd_consent"
+        class="mt-1 w-5 h-5 accent-primary-500 flex-shrink-0"
+        required
+      />
+      <span class="text-sm text-gray-400 leading-relaxed">
+        Autorizo a RogerWeb a coletar e tratar meus dados pessoais informados acima com a finalidade de responder à minha solicitação de contato e orçamento, em conformidade com a <a href="/privacidade" target="_blank" rel="noopener noreferrer" class="text-primary-400 hover:text-primary-300 underline">Política de Privacidade</a> e com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018).
+      </span>
+    </label>
+    <p class="text-xs text-gray-500 leading-relaxed pl-8">
+      Seus dados são utilizados apenas para atendimento comercial, não são vendidos e podem ser excluídos ou corrigidos a qualquer momento mediante solicitação para <a href="mailto:contato@rogerweb.com.br" class="text-gray-400 hover:text-primary-400 transition-colors">contato@rogerweb.com.br</a>.
+    </p>
+  </div>
+
   <button
     type="submit"
-    class="w-full bg-primary-600 hover:bg-primary-700 px-8 py-4 rounded-full font-semibold text-lg transition-all hover:scale-105"
+    class="w-full bg-primary-600 hover:bg-primary-700 px-8 py-4 rounded-full font-semibold text-base sm:text-lg transition-all hover:scale-105"
   >
     Quero Minha Análise Gratuita
   </button>
@@ -82,6 +101,12 @@
     const honeypot = form.querySelector<HTMLInputElement>('input[name="website"]');
     if (honeypot?.value) return;
 
+    const consent = form.querySelector<HTMLInputElement>('input[name="lgpd_consent"]');
+    if (!consent?.checked) {
+      alert('Para enviar sua solicitação, é necessário autorizar o tratamento dos seus dados pessoais conforme a LGPD.');
+      return;
+    }
+
     const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
     const originalText = submitBtn.textContent ?? '';
     submitBtn.disabled = true;
@@ -94,6 +119,8 @@
     const servico = formData.get('servico') as string;
     const mensagem = formData.get('mensagem') as string;
 
+    const consentDate = new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });
+
     const whatsappMessage = encodeURIComponent(
       `Olá! Gostaria de uma análise gratuita.\n\nNome: ${nome}\nE-mail: ${email}\nTelefone: ${telefone}\nServiço: ${servico}\n\nMensagem:\n${mensagem}`
     );
@@ -105,6 +132,10 @@
       payload.append('phone', telefone);
       payload.append('service', servico);
       payload.append('message', mensagem);
+      payload.append(
+        'consent',
+        `Autorizado em ${consentDate} - Conforme LGPD (Lei 13.709/2018), para fins de contato e orçamento.`
+      );
       payload.append('_subject', 'Nova Solicitação de Orçamento - RogerWeb');
       payload.append('_captcha', 'false');
       payload.append('_template', 'table');

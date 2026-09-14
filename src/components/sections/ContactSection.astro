@@ -2,21 +2,21 @@
 import ContactForm from '../ContactForm.astro';
 ---
 
-<section id="contato" class="py-20 px-4 sm:px-6 lg:px-8">
+<section id="contato" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8">
   <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+    <div class="text-center mb-12 sm:mb-16">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
         Pronto para <span class="gradient-text">aumentar suas vendas</span>?
       </h2>
-      <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+      <p class="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto">
         Preencha o formulário e receba uma análise gratuita do seu potencial de crescimento em até 24 horas.
       </p>
     </div>
 
-    <div class="grid lg:grid-cols-2 gap-12">
+    <div class="grid lg:grid-cols-2 gap-8 sm:gap-12">
       <div class="space-y-8">
-        <div class="bg-dark-800/50 backdrop-blur-sm border border-primary-500/20 rounded-2xl p-8">
-          <h3 class="text-2xl font-bold mb-6 text-white">Informações de Contato</h3>
+        <div class="bg-dark-800/50 backdrop-blur-sm border border-primary-500/20 rounded-2xl p-6 sm:p-8">
+          <h3 class="text-xl sm:text-2xl font-bold mb-6 text-white">Informações de Contato</h3>
           <div class="space-y-6">
             <div class="flex items-center space-x-4">
               <div class="w-12 h-12 bg-primary-500/20 rounded-lg flex items-center justify-center">
@@ -55,14 +55,14 @@ import ContactForm from '../ContactForm.astro';
           </div>
         </div>
 
-        <a href="https://wa.me/5511912136490" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 bg-green-600 hover:bg-green-700 px-8 py-4 rounded-full font-semibold text-lg transition-all hover:scale-105">
+        <a href="https://wa.me/5511912136490" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 bg-green-600 hover:bg-green-700 px-6 sm:px-8 py-4 rounded-full font-semibold text-base sm:text-lg transition-all hover:scale-105">
           <img src="/assets/images/mascote-whatsapp.jpg" alt="WhatsApp" class="w-8 h-8 rounded-full" />
           <span>Resposta em 5 minutos</span>
         </a>
       </div>
 
-      <div class="bg-dark-800/50 backdrop-blur-sm border border-primary-500/20 rounded-2xl p-8">
-        <h3 class="text-2xl font-bold mb-2 text-white">Análise Gratuita</h3>
+      <div class="bg-dark-800/50 backdrop-blur-sm border border-primary-500/20 rounded-2xl p-6 sm:p-8">
+        <h3 class="text-xl sm:text-2xl font-bold mb-2 text-white">Análise Gratuita</h3>
         <p class="text-gray-400 mb-6">Descubra quanto você pode aumentar seu faturamento</p>
         <ContactForm />
       </div>

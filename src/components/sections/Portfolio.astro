@@ -94,14 +94,14 @@ const projects: Project[] = [
 ];
 ---
 
-<section id="portfolio" class="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+<section id="portfolio" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
   <div class="absolute inset-0 bg-primary-500/5"></div>
   <div class="max-w-7xl mx-auto relative">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+    <div class="text-center mb-10 sm:mb-12">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
         Nosso <span class="gradient-text">Portfólio</span> de Sucesso
       </h2>
-      <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+      <p class="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto">
         Conheça alguns dos projetos que desenvolvemos e que geram resultados concretos diariamente
       </p>
 
@@ -139,7 +139,7 @@ const projects: Project[] = [
     </div>
 
     <!-- Projects Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" id="portfolio-grid">
       {projects.map((project) => (
         <div
           class="portfolio-item card-hover bg-dark-800/60 backdrop-blur-sm border border-primary-500/20 rounded-2xl overflow-hidden flex flex-col transition-all duration-500"
