@@ -1,0 +1,209 @@
+<div id="exit-modal" class="hidden fixed inset-0 z-[80] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="exit-modal-title" aria-hidden="true">
+  <div id="exit-modal-overlay" class="exit-intent-overlay-enter absolute inset-0 bg-black/70 backdrop-blur-sm cursor-pointer"></div>
+
+  <div id="exit-modal-card" class="exit-intent-card-enter relative w-full max-w-md bg-dark-800/95 border border-primary-500/30 rounded-3xl shadow-2xl p-6 sm:p-8">
+    <button
+      type="button"
+      id="exit-modal-close"
+      class="absolute top-3 right-3 text-gray-500 hover:text-white transition-colors p-1.5 rounded-lg hover:bg-primary-500/10"
+      aria-label="Continuar navegando"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <div class="relative">
+      <div class="absolute -inset-4 bg-gradient-to-r from-primary-500/20 to-accent-500/20 rounded-full blur-3xl"></div>
+      <img
+        src="/assets/images/mascote-rogerweb.png"
+        alt="Mascote RogerWeb"
+        class="mascot-float w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-5 object-contain relative"
+        loading="lazy"
+      />
+    </div>
+
+    <div class="inline-flex items-center gap-1.5 bg-accent-500/15 border border-accent-500/30 text-accent-300 text-xs font-semibold rounded-full px-3 py-1 mb-3">
+      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M5 3a1 1 0 011 1c0 .13.02.26.05.38a4.995 4.995 0 00-1.62 5.35l-.34.62c-.44.79-.17 1.79.71 2.13.58.22 1.04.56 1.35.97.31-.4.77-.75 1.35-.97.88-.34 1.15-1.34.71-2.13l-.34-.62a4.995 4.995 0 00-1.62-5.35c.03-.12.05-.25.05-.38a1 1 0 011-1h2a1 1 0 110 2h-.97l.63 1.14a4 4 0 00-1.38 2.73c.2-.09.43-.14.67-.14.24 0 .47.05.67.14a4 4 0 00-1.38-2.73l.63-1.14H6a1 1 0 01-1-1z" />
+      </svg>
+      Oportunidade antes de você sair
+    </div>
+
+    <h3 id="exit-modal-title" class="text-2xl sm:text-3xl font-bold text-white mb-2">
+      Antes de sair, <span class="gradient-text">não leve isso embora</span>
+    </h3>
+    <p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-5">
+      Receba uma <strong class="text-white">Análise Gratuita</strong> do potencial de crescimento do seu negócio e descubra exatamente quais estratégias vão aumentar suas vendas.
+    </p>
+
+    <div class="space-y-3">
+      <a
+        id="exit-modal-offer"
+        href="/#contato"
+        class="flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-6 py-3.5 rounded-full font-semibold text-sm sm:text-base transition-all hover:scale-105 text-center"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+        Quero minha análise gratuita
+      </a>
+
+      <a
+        href="https://wa.me/5511912136490?text=Ol%C3%A1!%20Vi%20a%20oferta%20antes%20de%20sair%20e%20quero%20minha%20an%C3%A1lise%20gratuita."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full font-semibold text-sm sm:text-base transition-all hover:scale-105"
+      >
+        <img src="/assets/images/mascote-whatsapp.jpg" alt="WhatsApp" class="w-6 h-6 rounded-full" />
+        Falar agora no WhatsApp
+      </a>
+
+      <button
+        type="button"
+        id="exit-modal-dismiss"
+        class="w-full text-gray-400 hover:text-white text-sm font-medium transition-colors pt-1"
+      >
+        Continuar navegando
+      </button>
+    </div>
+
+    <p class="text-center text-gray-500 text-xs mt-4">
+      Sem compromisso · Resposta em até 24h · Dados protegidos (LGPD)
+    </p>
+  </div>
+</div>
+
+<style>
+  .exit-intent-overlay-enter {
+    animation: exit-intent-fade 0.3s ease-out;
+  }
+
+  .exit-intent-card-enter {
+    animation: exit-intent-pop 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .exit-intent-closing .exit-intent-overlay-enter {
+    animation: exit-intent-fade-out 0.25s ease-in forwards;
+  }
+
+  .exit-intent-closing .exit-intent-card-enter {
+    animation: exit-intent-pop-out 0.25s ease-in forwards;
+  }
+
+  @keyframes exit-intent-fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes exit-intent-pop {
+    from { opacity: 0; transform: translateY(16px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @keyframes exit-intent-fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+
+  @keyframes exit-intent-pop-out {
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to { opacity: 0; transform: translateY(10px) scale(0.96); }
+  }
+</style>
+
+<script>
+  const LAST_SHOWN_KEY = 'exit-intent-last-shown';
+  const SESSION_KEY = 'exit-intent-shown-session';
+  const COOLDOWN_MS = 8000;
+  const FREQUENCY_MS = 24 * 60 * 60 * 1000;
+
+  const modal = document.getElementById('exit-modal') as HTMLElement | null;
+  const card = document.getElementById('exit-modal-card');
+  const overlay = document.getElementById('exit-modal-overlay');
+  const closeBtn = document.getElementById('exit-modal-close');
+  const dismissBtn = document.getElementById('exit-modal-dismiss');
+  const offerLink = document.getElementById('exit-modal-offer') as HTMLAnchorElement | null;
+
+  const pageLoadTime = Date.now();
+  let lastFocused: HTMLElement | null = null;
+  let closing = false;
+
+  function canShow(): boolean {
+    try {
+      if (sessionStorage.getItem(SESSION_KEY)) return false;
+      const last = Number(localStorage.getItem(LAST_SHOWN_KEY) || 0);
+      if (last && Date.now() - last < FREQUENCY_MS) return false;
+    } catch {
+      // armazenamento indisponível - permite exibir normalmente
+    }
+    return true;
+  }
+
+  function markShown() {
+    try {
+      sessionStorage.setItem(SESSION_KEY, '1');
+      localStorage.setItem(LAST_SHOWN_KEY, String(Date.now()));
+    } catch {
+      // segue silenciosamente
+    }
+  }
+
+  function show() {
+    if (!modal || !card || closing) return;
+    if (Date.now() - pageLoadTime < COOLDOWN_MS) return;
+    if (!canShow()) return;
+
+    markShown();
+    lastFocused = document.activeElement as HTMLElement | null;
+    modal.classList.remove('hidden');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    offerLink?.focus();
+  }
+
+  function hide() {
+    if (!modal || closing) return;
+    closing = true;
+    modal.classList.add('exit-intent-closing');
+    document.body.style.overflow = '';
+
+    window.setTimeout(() => {
+      modal.classList.add('hidden');
+      modal.classList.remove('exit-intent-closing');
+      modal.setAttribute('aria-hidden', 'true');
+      closing = false;
+      lastFocused?.focus?.();
+    }, 260);
+  }
+
+  function goToOffer(event: Event) {
+    event.preventDefault();
+    hide();
+    const target = document.getElementById('contato');
+    if (target) {
+      window.setTimeout(() => target.scrollIntoView({ behavior: 'smooth' }), 260);
+    } else {
+      window.setTimeout(() => { window.location.href = '/#contato'; }, 260);
+    }
+  }
+
+  document.addEventListener('mouseout', (event) => {
+    const mouseEvent = event as MouseEvent;
+    if (mouseEvent.relatedTarget) return;
+    if (mouseEvent.clientY <= 0) show();
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') show();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal && !modal.classList.contains('hidden')) hide();
+  });
+
+  overlay?.addEventListener('click', hide);
+  closeBtn?.addEventListener('click', hide);
+  dismissBtn?.addEventListener('click', hide);
+  offerLink?.addEventListener('click', goToOffer);
+</script>

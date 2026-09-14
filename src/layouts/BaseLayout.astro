@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import CookieConsent from '../components/CookieConsent.astro';
+import ExitIntentModal from '../components/ExitIntentModal.astro';
 
 interface Props {
   title: string;
@@ -45,5 +46,6 @@ const {
   <body class="gradient-bg min-h-screen text-white">
     <slot />
     <CookieConsent />
+    <ExitIntentModal />
   </body>
 </html>
