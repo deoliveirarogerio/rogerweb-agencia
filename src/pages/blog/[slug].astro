@@ -1,0 +1,178 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppFloat from '../../components/WhatsAppFloat.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.data.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const publishedAt = post.data.date.toISOString();
+const canonical = `https://rogerweb.com.br/blog/${post.data.slug}`;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.excerpt,
+  image: post.data.image,
+  datePublished: publishedAt,
+  dateModified: publishedAt,
+  author: {
+    '@type': 'Organization',
+    name: post.data.author,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'RogerWeb',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://rogerweb.com.br/assets/images/logo-rogerweb.png',
+    },
+  },
+  mainEntityOfPage: canonical,
+};
+
+const formatDate = (date: Date) =>
+  date.toLocaleDateString('pt-BR', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
+---
+
+<BaseLayout
+  title={`${post.data.title} | Blog RogerWeb`}
+  description={post.data.excerpt}
+  keywords={post.data.tags.join(', ')}
+  canonical={canonical}
+  ogImage={post.data.image}
+  ogType="article"
+  jsonLd={jsonLd}
+>
+  <Fragment slot="head">
+    <meta property="article:published_time" content={publishedAt} />
+    <meta property="article:section" content={post.data.category} />
+    <meta name="author" content={post.data.author} />
+  </Fragment>
+
+  <Navbar currentPage="blog" />
+
+  <main class="min-h-screen">
+    <article class="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <a href="/blog" class="inline-flex items-center gap-2 text-primary-400 hover:text-primary-300 mb-8">
+          <span aria-hidden="true">&larr;</span>
+          Voltar ao blog
+        </a>
+
+        <header class="mb-10">
+          <div class="flex flex-wrap items-center gap-3 mb-5 text-sm">
+            <span class="text-primary-300 bg-primary-500/10 px-3 py-1 rounded-full">{post.data.category}</span>
+            <time datetime={publishedAt} class="text-gray-400">{formatDate(post.data.date)}</time>
+            <span class="text-gray-500">Por {post.data.author}</span>
+          </div>
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-6">{post.data.title}</h1>
+          <p class="text-lg sm:text-xl text-gray-300 leading-relaxed">{post.data.excerpt}</p>
+        </header>
+
+        <img
+          src={post.data.image}
+          alt={post.data.title}
+          class="w-full aspect-[16/9] object-cover rounded-3xl mb-10 border border-primary-500/20"
+        />
+
+        <div class="blog-content text-gray-300 leading-8">
+          <Content />
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-primary-500/20">
+          <div class="flex flex-wrap gap-2" aria-label="Tags do artigo">
+            {post.data.tags.map((tag) => (
+              <span class="text-sm text-gray-400 bg-dark-800 px-3 py-1 rounded-full">#{tag}</span>
+            ))}
+          </div>
+          <a href="/blog" class="inline-flex items-center gap-2 text-primary-400 hover:text-primary-300 font-semibold mt-8">
+            Ver todos os artigos
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+  <WhatsAppFloat />
+</BaseLayout>
+
+<style is:global>
+  .blog-content h2 {
+    color: #fff;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 2.5rem 0 1rem;
+  }
+
+  .blog-content h3 {
+    color: #fff;
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin: 2rem 0 0.75rem;
+  }
+
+  .blog-content p,
+  .blog-content ul,
+  .blog-content ol,
+  .blog-content blockquote {
+    margin: 1rem 0;
+  }
+
+  .blog-content ul,
+  .blog-content ol {
+    padding-left: 1.5rem;
+  }
+
+  .blog-content ul {
+    list-style: disc;
+  }
+
+  .blog-content ol {
+    list-style: decimal;
+  }
+
+  .blog-content li + li {
+    margin-top: 0.5rem;
+  }
+
+  .blog-content a {
+    color: #c084fc;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .blog-content strong {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .blog-content blockquote {
+    border-left: 3px solid #a855f7;
+    color: #d1d5db;
+    padding-left: 1rem;
+  }
+
+  .blog-content hr {
+    border-color: rgba(168, 85, 247, 0.25);
+    margin: 2rem 0;
+  }
+</style>

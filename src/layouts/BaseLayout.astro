@@ -8,6 +8,8 @@ interface Props {
   description: string;
   keywords?: string;
   canonical?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
   jsonLd?: object;
 }
 
@@ -16,6 +18,8 @@ const {
   description,
   keywords = 'desenvolvimento web, marketing digital, meta ads, google ads, sites, sistemas web, e-commerce, agência digital',
   canonical = 'https://rogerweb.com.br/',
+  ogImage = 'https://rogerweb.com.br/assets/images/logo-rogerweb.png',
+  ogType = 'website',
   jsonLd,
 } = Astro.props;
 ---
@@ -30,11 +34,11 @@ const {
     <meta name="keywords" content={keywords} />
     <link rel="canonical" href={canonical} />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content="https://rogerweb.com.br/assets/images/logo-rogerweb.png" />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:locale" content="pt_BR" />
 
     {jsonLd && (

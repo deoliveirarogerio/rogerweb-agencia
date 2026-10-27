@@ -1,0 +1,87 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppFloat from '../../components/WhatsAppFloat.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (first, second) => second.data.date.getTime() - first.data.date.getTime(),
+);
+
+const formatDate = (date: Date) =>
+  date.toLocaleDateString('pt-BR', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
+---
+
+<BaseLayout
+  title="Blog RogerWeb | Marketing Digital e Desenvolvimento Web"
+  description="Artigos e estratégias práticas sobre desenvolvimento web, Google Ads, Meta Ads e marketing digital para impulsionar seu negócio."
+  keywords="blog RogerWeb, marketing digital, Google Ads, Meta Ads, desenvolvimento web, conversão"
+  canonical="https://rogerweb.com.br/blog"
+>
+  <Navbar currentPage="blog" />
+
+  <main class="min-h-screen">
+    <section class="pt-32 pb-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <div class="absolute inset-0 bg-primary-500/5"></div>
+      <div class="max-w-7xl mx-auto text-center relative">
+        <span class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary-400 bg-primary-500/10 px-4 py-1.5 rounded-full border border-primary-500/20 inline-block mb-4">
+          Conteúdo RogerWeb
+        </span>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+          Ideias para <span class="gradient-text">crescer no digital</span>
+        </h1>
+        <p class="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto">
+          Estratégias, guias e tendências de desenvolvimento web e marketing para transformar conhecimento em resultados.
+        </p>
+      </div>
+    </section>
+
+    <section class="pb-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        {posts.length > 0 ? (
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {posts.map((post) => (
+              <article class="group bg-dark-800/60 border border-primary-500/20 rounded-3xl overflow-hidden card-hover">
+                <a href={`/blog/${post.data.slug}`} class="block h-full">
+                  <img
+                    src={post.data.image}
+                    alt={post.data.title}
+                    class="w-full aspect-[16/9] object-cover"
+                    loading="lazy"
+                  />
+                  <div class="p-6">
+                    <div class="flex items-center justify-between gap-3 mb-4 text-sm">
+                      <span class="text-primary-300 bg-primary-500/10 px-3 py-1 rounded-full">{post.data.category}</span>
+                      <time datetime={post.data.date.toISOString()} class="text-gray-400">
+                        {formatDate(post.data.date)}
+                      </time>
+                    </div>
+                    <h2 class="text-xl font-bold text-white group-hover:text-primary-300 transition-colors mb-3">
+                      {post.data.title}
+                    </h2>
+                    <p class="text-gray-400 leading-relaxed mb-5">{post.data.excerpt}</p>
+                    <span class="inline-flex items-center gap-2 text-primary-400 font-semibold">
+                      Ler artigo
+                      <span aria-hidden="true">&rarr;</span>
+                    </span>
+                  </div>
+                </a>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <p class="text-center text-gray-300">Novos artigos em breve.</p>
+        )}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <WhatsAppFloat />
+</BaseLayout>

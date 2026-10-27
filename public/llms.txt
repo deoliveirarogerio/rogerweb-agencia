@@ -65,6 +65,7 @@ Navigate to the appropriate section:
 - Services overview: https://rogerweb.com.br/#servicos
 - About us: https://rogerweb.com.br/#sobre
 - Contact: https://rogerweb.com.br/#contato
+- Blog: https://rogerweb.com.br/blog
 
 ## Service Details
 

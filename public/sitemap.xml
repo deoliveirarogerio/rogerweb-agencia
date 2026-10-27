@@ -30,4 +30,40 @@
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
+    <url>
+        <loc>https://rogerweb.com.br/blog</loc>
+        <lastmod>2026-10-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://rogerweb.com.br/blog/google-ads-estrategias-2024</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://rogerweb.com.br/blog/google-ads-vs-meta-ads-qual-escolher</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://rogerweb.com.br/blog/importancia-site-profissional</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://rogerweb.com.br/blog/landing-pages-alta-conversao</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://rogerweb.com.br/blog/meta-ads-facebook-instagram</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://rogerweb.com.br/blog/rastreamento-conversoes-capi-gtm-ga4</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
 </urlset>
