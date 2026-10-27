@@ -41,6 +41,53 @@ const {
       gtag('js', new Date());
       gtag('config', 'G-BHMV0EHP7V');
     </script>
+    <script is:inline>
+      window.rogerwebTrack = function(eventName, parameters = {}) {
+        try {
+          const consent = JSON.parse(localStorage.getItem('lgpd-consent') || 'null');
+          if (consent?.choice !== 'accepted') return;
+        } catch {
+          return;
+        }
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: eventName, ...parameters });
+      };
+
+      document.addEventListener('click', (event) => {
+        const target = event.target instanceof Element ? event.target.closest('a') : null;
+        if (!target) return;
+
+        const href = target.getAttribute('href') || '';
+        const source = target.dataset.analyticsSource
+          || target.closest('[data-analytics-source]')?.dataset.analyticsSource
+          || location.pathname;
+        let eventName = target.dataset.analyticsEvent;
+
+        if (!eventName && /^https?:\/\/(?:api\.)?wa\.me\//i.test(href)) {
+          eventName = 'whatsapp_click';
+        } else if (!eventName && href.startsWith('mailto:')) {
+          eventName = 'email_click';
+        } else if (!eventName && href.startsWith('tel:')) {
+          eventName = 'phone_click';
+        } else if (!eventName && href) {
+          try {
+            const destination = new URL(href, location.href);
+            const path = destination.pathname.replace(/\/$/, '');
+            if (
+              destination.origin === location.origin
+              && (destination.hash === '#contato' || path === '/contato')
+            ) {
+              eventName = 'contact_cta_click';
+            }
+          } catch {
+            return;
+          }
+        }
+
+        if (eventName) window.rogerwebTrack(eventName, { event_source: source });
+      });
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>

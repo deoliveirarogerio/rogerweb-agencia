@@ -41,3 +41,17 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## Rastreamento de conversões pelo Google Tag Manager
+
+O site envia eventos personalizados ao `dataLayer` existente. Esses eventos só são enviados depois que o visitante aceita os cookies; dados de formulário, texto digitado e URLs de WhatsApp com mensagem nunca são incluídos.
+
+| Evento | Quando é enviado | Parâmetros |
+| --- | --- | --- |
+| `contact_cta_click` | Clique em um link para a seção ou página de contato | `event_source` |
+| `whatsapp_click` | Clique em um link do WhatsApp ou escolha do WhatsApp após falha do formulário | `event_source` |
+| `email_click` | Clique em um link de e-mail | `event_source` |
+| `phone_click` | Clique em um link de telefone | `event_source` |
+| `generate_lead` | Formulário de contato enviado com sucesso | `form_id` |
+
+Para registrar esses eventos no GA4, crie no GTM um acionador **Evento personalizado** para cada nome e associe uma tag **Evento do GA4** usando a configuração Google/GA4 já existente no contêiner. Marque `generate_lead` como evento principal (conversão) no GA4. Não crie outra tag de configuração do Google nem um segundo `page_view`, para evitar duplicidade.

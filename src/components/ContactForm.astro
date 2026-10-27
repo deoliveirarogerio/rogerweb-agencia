@@ -93,6 +93,11 @@
 </form>
 
 <script>
+  type AnalyticsWindow = Window & {
+    rogerwebTrack?: (eventName: string, parameters?: Record<string, string>) => void;
+  };
+
+  const trackAnalytics = (window as AnalyticsWindow).rogerwebTrack;
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
 
   form?.addEventListener('submit', async (e) => {
@@ -147,6 +152,7 @@
       });
 
       if (response.ok) {
+        trackAnalytics?.('generate_lead', { form_id: 'contact-form' });
         alert('Solicitação enviada com sucesso! Entraremos em contato em até 24 horas.');
         form.reset();
       } else {
@@ -157,6 +163,7 @@
         'Não foi possível enviar pelo formulário. Deseja continuar pelo WhatsApp?'
       );
       if (openWhatsApp) {
+        trackAnalytics?.('whatsapp_click', { event_source: 'contact_form_fallback' });
         window.open(`https://wa.me/5511912136490?text=${whatsappMessage}`, '_blank');
       }
     } finally {
