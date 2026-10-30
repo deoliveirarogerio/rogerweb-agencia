@@ -12,8 +12,8 @@ const showService = kind === 'contato';
 
 <form data-lead-form data-kind={kind} data-nicho={nicho || ''} novalidate class="space-y-6">
   <!-- honeypot -->
-  <div aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden">
-    <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+  <div aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none">
+    <label for="website">Website <input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></label>
   </div>
   <input type="hidden" name="ts">
   <input type="hidden" name="nicho" value={nicho || ''}>
