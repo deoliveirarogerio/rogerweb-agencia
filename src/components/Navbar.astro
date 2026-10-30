@@ -1,6 +1,8 @@
 ---
+import MenuSolucoes from './nichos/MenuSolucoes.astro';
+
 interface Props {
-  currentPage?: 'home' | 'sobre' | 'contato' | 'privacidade' | 'blog';
+  currentPage?: 'home' | 'sobre' | 'contato' | 'privacidade' | 'blog' | 'criacao-sites' | 'sites-para';
 }
 
 const { currentPage = 'home' } = Astro.props;
@@ -25,10 +27,12 @@ const linkClass = (page: string) =>
         {currentPage === 'home' ? (
           <>
             <a href="#servicos" class="text-gray-300 hover:text-primary-400 transition-colors">Serviços</a>
+            <MenuSolucoes />
             <a href="#portfolio" class="text-gray-300 hover:text-primary-400 transition-colors">Portfólio</a>
             <a href="/sobre" class="text-gray-300 hover:text-primary-400 transition-colors">Sobre</a>
             <a href="/contato" class="text-gray-300 hover:text-primary-400 transition-colors">Contato</a>
             <a href="/blog" class={linkClass('blog')}>Blog</a>
+            <a href="/criacao-sites" class={linkClass('criacao-sites')}>Criação de Sites</a>
             <a href="#contato" class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2.5 rounded-full font-semibold transition-all hover:scale-105 shadow-md shadow-primary-600/20">
               Orçamento Grátis
             </a>
@@ -37,10 +41,12 @@ const linkClass = (page: string) =>
           <>
             <a href="/" class="text-gray-300 hover:text-primary-400 transition-colors">Início</a>
             <a href="/#servicos" class="text-gray-300 hover:text-primary-400 transition-colors">Serviços</a>
+            <MenuSolucoes />
             <a href="/#portfolio" class="text-gray-300 hover:text-primary-400 transition-colors">Portfólio</a>
             <a href="/sobre" class={linkClass('sobre')}>Sobre</a>
             <a href="/contato" class={linkClass('contato')}>Contato</a>
             <a href="/blog" class={linkClass('blog')}>Blog</a>
+            <a href="/criacao-sites" class={linkClass('criacao-sites')}>Criação de Sites</a>
             <a href="/contato" class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2.5 rounded-full font-semibold transition-all hover:scale-105 shadow-md shadow-primary-600/20">
               Orçamento Grátis
             </a>
@@ -63,20 +69,24 @@ const linkClass = (page: string) =>
       {currentPage === 'home' ? (
         <>
           <a href="#servicos" class="block text-gray-300 hover:text-primary-400 py-2">Serviços</a>
+          <a href="/sites-para/" class="block text-gray-300 hover:text-primary-400 py-2">Soluções ▾</a>
           <a href="#portfolio" class="block text-gray-300 hover:text-primary-400 py-2">Portfólio</a>
           <a href="/sobre" class="block text-gray-300 hover:text-primary-400 py-2">Sobre</a>
           <a href="/contato" class="block text-gray-300 hover:text-primary-400 py-2">Contato</a>
           <a href="/blog" class="block text-gray-300 hover:text-primary-400 py-2">Blog</a>
+          <a href="/criacao-sites" class="block text-gray-300 hover:text-primary-400 py-2">Criação de Sites</a>
           <a href="#contato" class="block bg-primary-600 hover:bg-primary-700 text-center text-white px-6 py-3 rounded-full font-semibold">Orçamento Grátis</a>
         </>
       ) : (
         <>
           <a href="/" class="block text-gray-300 hover:text-primary-400 py-2">Início</a>
           <a href="/#servicos" class="block text-gray-300 hover:text-primary-400 py-2">Serviços</a>
+          <a href="/sites-para/" class="block text-gray-300 hover:text-primary-400 py-2">Soluções ▾</a>
           <a href="/#portfolio" class="block text-gray-300 hover:text-primary-400 py-2">Portfólio</a>
           <a href="/sobre" class={`block py-2 ${linkClass('sobre')}`}>Sobre</a>
           <a href="/contato" class={`block py-2 ${linkClass('contato')}`}>Contato</a>
           <a href="/blog" class={`block py-2 ${linkClass('blog')}`}>Blog</a>
+          <a href="/criacao-sites" class={`block py-2 ${linkClass('criacao-sites')}`}>Criação de Sites</a>
           <a href="/contato" class="block bg-primary-600 hover:bg-primary-700 text-center text-white px-6 py-3 rounded-full font-semibold">Orçamento Grátis</a>
         </>
       )}

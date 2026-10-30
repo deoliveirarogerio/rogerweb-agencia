@@ -1,0 +1,31 @@
+---
+interface Props {
+  funcionalidades: Array<{ titulo: string; texto: string; icone?: string }>;
+}
+
+const { funcionalidades } = Astro.props;
+---
+
+<section class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-10 sm:mb-12">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+        O que seu site vai ter
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      {funcionalidades.map((func) => (
+        <div class="bg-dark-800/50 backdrop-blur-sm border border-primary-500/20 rounded-2xl p-6 sm:p-8 card-hover">
+          <div class="w-14 h-14 bg-primary-500/20 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-7 h-7 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2">{func.titulo}</h3>
+          <p class="text-gray-400">{func.texto}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,108 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppFloat from '../../components/WhatsAppFloat.astro';
+import MenuSolucoes from '../../components/nichos/MenuSolucoes.astro';
+import ComoFunciona from '../../components/criacao-sites/ComoFunciona.astro';
+import NichoHero from '../../components/nichos/NichoHero.astro';
+import NichoDores from '../../components/nichos/NichoDores.astro';
+import NichoFuncionalidades from '../../components/nichos/NichoFuncionalidades.astro';
+import NichoCase from '../../components/nichos/NichoCase.astro';
+import NichoFaq from '../../components/nichos/NichoFaq.astro';
+import NichoCta from '../../components/nichos/NichoCta.astro';
+
+export async function getStaticPaths() {
+  const nichos = await getCollection('nichos', ({ data }) => data.publicado);
+  return nichos.map((n) => ({ params: { nicho: n.data.slug }, props: { n } }));
+}
+
+const { n } = Astro.props;
+const { Content } = await render(n);
+const d = n.data;
+
+const faqQuestions = d.faq.map(f => f.pergunta);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Service',
+      serviceType: `Criação de site para ${d.nomeSingular}`,
+      provider: { '@id': 'https://rogerweb.com.br/#empresa' },
+      areaServed: 'Brasil',
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqQuestions.map(q => ({
+        '@type': 'Question',
+        name: q,
+        acceptedAnswer: { '@type': 'Answer', text: 'Consulte a seção de FAQ acima.' },
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={d.seo.title}
+  description={d.seo.description}
+  canonical={`https://rogerweb.com.br/sites-para/${d.slug}/`}
+  jsonLd={jsonLd}
+>
+  <Navbar currentPage="sites-para" />
+  <MenuSolucoes />
+
+  <NichoHero
+    h1={d.hero.h1}
+    subtitulo={d.hero.subtitulo}
+    ctaTexto={d.hero.ctaTexto}
+    whatsappMsg={d.whatsappMsg}
+    slug={d.slug}
+    icone={d.icone}
+  />
+
+  <NichoDores dores={d.dores} />
+
+  <section class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto prose prose-invert prose-lg">
+      <Content />
+    </div>
+  </section>
+
+  <NichoFuncionalidades funcionalidades={d.funcionalidades} />
+
+  <section class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-10 sm:mb-12">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          O que seu site vai ter
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {d.paginasDoSite.map(pagina => (
+          <div class="bg-dark-800/50 border border-primary-500/20 rounded-lg p-4 text-center">
+            <span class="text-gray-300">{pagina}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <NichoCase case={d.case} />
+  <ComoFunciona />
+  {d.avisoSetor && (
+    <section class="py-8 px-4 sm:px-6 lg:px-8 bg-accent-500/10 border-y border-accent-500/20">
+      <div class="max-w-4xl mx-auto text-center">
+        <p class="text-accent-400 text-sm">{d.avisoSetor}</p>
+      </div>
+    </section>
+  )}
+
+  <NichoFaq faq={d.faq} />
+  <NichoCta whatsappMsg={d.whatsappMsg} slug={d.slug} />
+
+  <Footer />
+  <WhatsAppFloat />
+</BaseLayout>

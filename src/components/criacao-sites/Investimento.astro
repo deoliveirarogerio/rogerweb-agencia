@@ -1,0 +1,97 @@
+---
+import { precos } from '../../data/precos';
+---
+
+<section id="precos" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-10 sm:mb-12">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+        Quanto custa criar um site?
+      </h2>
+      <p class="text-gray-400 text-lg">
+        Preços transparentes, pagamento único e sem mensalidade obrigatória. O valor final depende do escopo, e o orçamento é grátis.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8">
+      {precos.planos.map((plano) => (
+        <div
+          class={`bg-dark-800/50 backdrop-blur-sm border ${
+            plano.destaque
+              ? 'border-accent-500/40'
+              : 'border-primary-500/20'
+          } rounded-2xl p-6 sm:p-8 card-hover text-center relative`}
+        >
+          {plano.destaque && (
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+              Mais escolhido
+            </div>
+          )}
+          <h3 class="text-xl font-semibold text-white mb-2">{plano.nome}</h3>
+          <p class="text-gray-400 text-sm mb-2">{plano.prazo}</p>
+          <div class="text-3xl sm:text-4xl font-bold gradient-text mb-4">
+            {plano.preco}
+          </div>
+          <ul class="text-left text-sm text-gray-300 mb-6 space-y-2">
+            {plano.itens.map((item) => (
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <a
+            href={`https://wa.me/5511910802646?text=${encodeURIComponent(plano.whatsappMsg)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={`inline-block ${
+              plano.destaque
+                ? 'bg-accent-600 hover:bg-accent-700'
+                : 'bg-primary-600 hover:bg-primary-700'
+            } px-6 py-3 rounded-full font-semibold transition-all hover:scale-105 w-full`}
+          >
+            Quero orçamento
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <div class="bg-dark-800/30 border border-primary-500/20 rounded-xl p-6 sm:p-8 mb-6">
+      <h4 class="text-lg font-semibold text-white mb-4 text-center">Plano de manutenção (opcional, mensal)</h4>
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div>
+          <span class="text-xl font-bold gradient-text">{precos.manutencao.nome}</span>
+          <span class="text-2xl font-bold text-white ml-2">{precos.manutencao.preco}</span>
+        </div>
+        <ul class="text-sm text-gray-300 flex flex-wrap gap-x-4 gap-y-1">
+          {precos.manutencao.itens.map((item) => (
+            <li class="flex items-center gap-1">
+              <svg class="w-4 h-4 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="text-center space-y-4">
+      <div class="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
+        {precos.extras.map((extra) => (
+          <span>{extra.nome}: <span class="text-primary-400">{extra.preco}</span></span>
+        ))}
+      </div>
+      <div class="text-sm text-gray-400">
+        {precos.condicoes.map((condicao, index) => (
+          <span key={index}>{condicao}{index < precos.condicoes.length - 1 ? ' · ' : ''}</span>
+        ))}
+      </div>
+      <p class="text-xs text-gray-500">
+        {precos.nota}
+      </p>
+    </div>
+  </div>
+</section>

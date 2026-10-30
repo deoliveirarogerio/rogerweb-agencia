@@ -1,0 +1,60 @@
+---
+interface Props {
+  faq: Array<{ pergunta: string; resposta: string }>;
+}
+
+const { faq } = Astro.props;
+---
+
+<section class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-primary-500/5 to-transparent"></div>
+  <div class="max-w-4xl mx-auto relative">
+    <div class="text-center mb-10 sm:mb-12">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+        Perguntas frequentes
+      </h2>
+    </div>
+
+    <div class="space-y-4">
+      {faq.map((item, index) => (
+        <div class="faq-item bg-dark-800/50 backdrop-blur-sm border border-primary-500/20 rounded-xl overflow-hidden">
+          <button
+            class={`faq-button w-full px-6 py-4 sm:px-8 sm:py-5 text-left flex items-center justify-between gap-4 transition-colors hover:bg-primary-500/5 ${index === 0 ? 'bg-primary-500/5' : ''}`}
+            aria-expanded={index === 0}
+            aria-controls={`faq-answer-${index}`}
+          >
+            <span class="text-base sm:text-lg font-semibold text-white">{item.pergunta}</span>
+            <svg class="faq-icon w-5 h-5 text-primary-400 flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div id={`faq-answer-${index}`} class={`faq-answer px-6 pb-4 sm:px-8 sm:pb-5 text-gray-300 text-sm sm:text-base leading-relaxed ${index === 0 ? '' : 'hidden'}`}>
+            {item.resposta}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.faq-button').forEach((button) => {
+    button.addEventListener('click', () => {
+      const answer = button.nextElementSibling;
+      const icon = button.querySelector('.faq-icon');
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      document.querySelectorAll('.faq-button').forEach((otherButton) => {
+        if (otherButton !== button) {
+          otherButton.setAttribute('aria-expanded', 'false');
+          otherButton.classList.remove('bg-primary-500/5');
+          otherButton.nextElementSibling.classList.add('hidden');
+          otherButton.querySelector('.faq-icon').classList.remove('rotate-180');
+        }
+      });
+      button.setAttribute('aria-expanded', !isExpanded);
+      button.classList.toggle('bg-primary-500/5');
+      answer.classList.toggle('hidden');
+      icon.classList.toggle('rotate-180');
+    });
+  });
+</script>

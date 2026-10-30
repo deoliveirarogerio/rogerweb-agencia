@@ -1,0 +1,50 @@
+---
+interface Props {
+  case?: {
+    nome: string;
+    descricao: string;
+    resultado?: string;
+    imagem?: string;
+    link?: string;
+  };
+}
+
+const { case: caseData } = Astro.props;
+---
+
+{caseData && (
+  <section class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-primary-500/5 to-transparent"></div>
+    <div class="max-w-7xl mx-auto relative">
+      <div class="text-center mb-10 sm:mb-12">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          Case de sucesso
+        </h2>
+      </div>
+
+      <div class="bg-dark-800/50 backdrop-blur-sm border border-primary-500/20 rounded-2xl overflow-hidden">
+        <div class="grid lg:grid-cols-2">
+          {caseData.imagem && (
+            <div class="aspect-video lg:aspect-auto">
+              <img src={caseData.imagem} alt={caseData.nome} class="w-full h-full object-cover" loading="lazy" />
+            </div>
+          )}
+          <div class="p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
+            <h3 class="text-2xl sm:text-3xl font-bold text-white mb-4">{caseData.nome}</h3>
+            <p class="text-gray-400 mb-6">{caseData.descricao}</p>
+            {caseData.resultado && (
+              <p class="text-primary-400 text-sm font-medium mb-4">
+                ✅ {caseData.resultado}
+              </p>
+            )}
+            {caseData.link && (
+              <a href={caseData.link} target="_blank" rel="noopener noreferrer" class="text-primary-400 hover:text-primary-300 font-semibold transition-colors">
+                Ver projeto →
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+)}

@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
+import Hero from '../components/criacao-sites/Hero.astro';
+import TrustBar from '../components/criacao-sites/TrustBar.astro';
+import ProblemSolution from '../components/criacao-sites/ProblemSolution.astro';
+import Servicos from '../components/criacao-sites/Servicos.astro';
+import Diferenciais from '../components/criacao-sites/Diferenciais.astro';
+import ComoFunciona from '../components/criacao-sites/ComoFunciona.astro';
+import Portfolio from '../components/criacao-sites/Portfolio.astro';
+import Investimento from '../components/criacao-sites/Investimento.astro';
+import Faq from '../components/criacao-sites/Faq.astro';
+import FormOrcamento from '../components/criacao-sites/FormOrcamento.astro';
+
+const faqQuestions = [
+  'Quanto tempo leva para criar um site?',
+  'Quanto custa criar um site para empresa?',
+  'O site vai aparecer no Google?',
+  'Vocês atendem em todo o Brasil?',
+  'Eu consigo atualizar o site depois?',
+  'Preciso pagar mensalidade?',
+  'O site funciona no celular?',
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'ProfessionalService',
+      '@id': 'https://rogerweb.com.br/#empresa',
+      name: 'RogerWeb',
+      url: 'https://rogerweb.com.br/',
+      telephone: '+55-11-91080-2646',
+      email: 'contato@rogerweb.com.br',
+      areaServed: 'BR',
+      address: {
+        '@type': 'PostalAddress',
+        addressCountry: 'BR',
+      },
+    },
+    {
+      '@type': 'Service',
+      serviceType: 'Criação de sites e landing pages',
+      provider: { '@id': 'https://rogerweb.com.br/#empresa' },
+      areaServed: 'Brasil',
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqQuestions.map((question) => ({
+        '@type': 'Question',
+        name: question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Consulte a seção de FAQ acima para a resposta completa.',
+        },
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Criação de Sites e Landing Pages Profissionais | RogerWeb"
+  description="Criação de sites e landing pages profissionais para empresas. Sites rápidos, responsivos e otimizados para o Google. Atendimento em todo Brasil. Orçamento grátis pelo WhatsApp."
+  keywords="crição de sites, criação de site, site para empresa, site profissional para empresa, landing page profissional, criação de landing page, desenvolvedor de sites, desenvolvimento de sites, agência digital"
+  canonical="https://rogerweb.com.br/criacao-sites/"
+  ogImage="https://rogerweb.com.br/og/criacao-sites.jpg"
+  jsonLd={jsonLd}
+>
+  <Navbar currentPage="criacao-sites" />
+
+  <Hero />
+  <TrustBar />
+  <ProblemSolution />
+  <Servicos />
+  <Diferenciais />
+  <ComoFunciona />
+  <Portfolio />
+  <Testimonials />
+  <Investimento />
+  <Faq />
+  <FormOrcamento />
+
+  <Footer />
+  <WhatsAppFloat />
+
+  <Fragment slot="head">
+    <meta name="robots" content="index, follow" />
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('a[href*="wa.me"]').forEach(a =>
+          a.addEventListener('click', () => window.dataLayer?.push({ event: 'whatsapp_click', page: location.pathname }))
+        );
+      });
+    </script>
+  </Fragment>
+</BaseLayout>
