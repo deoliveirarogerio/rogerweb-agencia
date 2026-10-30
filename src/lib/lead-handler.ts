@@ -65,24 +65,24 @@ export async function handleLead(request: Request, env: Env, kind: Kind): Promis
     return json(400, { ok: false, error: 'timing' });
   }
 
-  // 3. Turnstile (temporariamente desabilitado até configurar site key)
-  // const token = clean(data['cf-turnstile-response'], 2048);
-  // if (!token) return json(400, { ok: false, error: 'captcha' });
-  // const ip = request.headers.get('CF-Connecting-IP') || '';
-  // const verify = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-  //   method: 'POST',
-  //   body: new URLSearchParams({
-  //     secret: env.TURNSTILE_SECRET_KEY,
-  //     response: token,
-  //     remoteip: ip,
-  //   }),
-  // })
-  //   .then((r) => r.json() as Promise<{ success: boolean; hostname?: string; action?: string }>)
-  //   .catch(() => ({ success: false }));
+  // 3. Turnstile
+  const token = clean(data['cf-turnstile-response'], 2048);
+  if (!token) return json(400, { ok: false, error: 'captcha' });
+  const ip = request.headers.get('CF-Connecting-IP') || '';
+  const verify = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+    method: 'POST',
+    body: new URLSearchParams({
+      secret: env.TURNSTILE_SECRET_KEY,
+      response: token,
+      remoteip: ip,
+    }),
+  })
+    .then((r) => r.json() as Promise<{ success: boolean; hostname?: string; action?: string }>)
+    .catch(() => ({ success: false }));
 
-  // if (!verify.success || (verify.hostname && !verify.hostname.endsWith('rogerweb.com.br') && verify.hostname !== 'localhost')) {
-  //   return json(403, { ok: false, error: 'captcha' });
-  // }
+  if (!verify.success || (verify.hostname && !verify.hostname.endsWith('rogerweb.com.br') && verify.hostname !== 'localhost')) {
+    return json(403, { ok: false, error: 'captcha' });
+  }
 
   // 4. Validação dos campos
   const nome = clean(data.nome, 80);
