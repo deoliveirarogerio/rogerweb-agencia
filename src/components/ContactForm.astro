@@ -1,4 +1,6 @@
-<form id="contact-form" class="space-y-6">
+---
+import { waLink } from '../data/contato';
+---
   <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
   <div>
@@ -164,7 +166,7 @@
       );
       if (openWhatsApp) {
         trackAnalytics?.('whatsapp_click', { event_source: 'contact_form_fallback' });
-        window.open(`https://wa.me/5511910802646?text=${whatsappMessage}`, '_blank');
+        window.open(waLink(whatsappMessage), '_blank');
       }
     } finally {
       submitBtn.disabled = false;

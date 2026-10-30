@@ -1,11 +1,12 @@
 ---
+import { waLink, WHATSAPP_EXIBICAO } from '../../data/contato';
 interface Props {
   whatsappMsg: string;
   slug: string;
 }
 
 const { whatsappMsg, slug } = Astro.props;
-const wa = `https://wa.me/5511910802646?text=${encodeURIComponent(whatsappMsg)}`;
+const wa = waLink(whatsappMsg);
 ---
 
 <section id="orcamento" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">

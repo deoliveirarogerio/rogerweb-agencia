@@ -1,5 +1,6 @@
 ---
 import ContactForm from '../ContactForm.astro';
+import { waLink, WHATSAPP_EXIBICAO } from '../../data/contato';
 ---
 
 <section id="contato" data-analytics-source="contact_section" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8">
@@ -55,7 +56,7 @@ import ContactForm from '../ContactForm.astro';
           </div>
         </div>
 
-        <a href="https://wa.me/5511910802646" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 bg-green-600 hover:bg-green-700 px-6 sm:px-8 py-4 rounded-full font-semibold text-base sm:text-lg transition-all hover:scale-105">
+        <a href={waLink('Olá! Quero falar agora pelo WhatsApp.')} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 bg-green-600 hover:bg-green-700 px-6 sm:px-8 py-4 rounded-full font-semibold text-base sm:text-lg transition-all hover:scale-105">
           <img src="/assets/images/mascote-whatsapp.jpg" alt="WhatsApp" class="w-8 h-8 rounded-full" />
           <span>Resposta em 5 minutos</span>
         </a>
