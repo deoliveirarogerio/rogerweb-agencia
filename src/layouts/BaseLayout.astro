@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import CookieConsent from '../components/CookieConsent.astro';
 import ExitIntentModal from '../components/ExitIntentModal.astro';
+import Toaster from '../components/Toaster.astro';
 
 interface Props {
   title: string;
@@ -29,6 +30,17 @@ const {
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        wait_for_update: 500,
+      });
+    </script>
     <script is:inline>
       (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -130,5 +142,6 @@ const {
     <slot />
     <CookieConsent />
     <ExitIntentModal />
+    <Toaster />
   </body>
 </html>

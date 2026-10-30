@@ -1,0 +1,53 @@
+<div id="toast-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
+
+<style>
+  .toast {
+    animation: slideIn 0.3s ease-out;
+  }
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  .toast.hiding {
+    animation: slideOut 0.3s ease-in forwards;
+  }
+  @keyframes slideOut {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  window.showToast = function(message: string, type: 'success' | 'error' | 'info' = 'info', duration = 5000) {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+
+    const toast = document.createElement('div');
+    const bgColor = type === 'success' ? 'bg-green-600' : type === 'error' ? 'bg-red-600' : 'bg-primary-600';
+    
+    toast.className = `toast ${bgColor} text-white px-6 py-4 rounded-lg shadow-lg flex items-center gap-3 max-w-md`;
+    toast.innerHTML = `
+      <span>${message}</span>
+      <button class="ml-auto hover:opacity-75" onclick="this.parentElement.remove()">✕</button>
+    `;
+    
+    container.appendChild(toast);
+    
+    setTimeout(() => {
+      toast.classList.add('hiding');
+      toast.addEventListener('animationend', () => toast.remove());
+    }, duration);
+  };
+</script>
