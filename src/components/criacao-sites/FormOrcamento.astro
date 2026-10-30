@@ -1,3 +1,6 @@
+---
+import { waLink } from '../../data/contato';
+---
 <section id="orcamento" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
   <div class="absolute inset-0 bg-gradient-to-b from-primary-500/5 to-transparent"></div>
   <div class="max-w-7xl mx-auto relative">
@@ -13,6 +16,7 @@
           action="/api/orcamento"
           method="POST"
           class="space-y-6"
+          id="form-orcamento"
         >
           <div>
             <label for="nome" class="block text-sm font-medium text-gray-300 mb-2">
@@ -106,7 +110,9 @@
           <h3 class="text-xl font-semibold text-white mb-2">Fale pelo WhatsApp</h3>
           <p class="text-gray-400 mb-4">Resposta mais rápida, atendimento personalizado</p>
           <a
-            href="https://wa.me/5511910802646?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20de%20site."
+            href={waLink('Olá! Quero um orçamento de site.')}
+            data-track="whatsapp"
+            data-local="form-whatsapp"
             target="_blank"
             rel="noopener noreferrer"
             class="inline-block bg-green-600 hover:bg-green-700 px-6 py-3 rounded-full font-semibold transition-all hover:scale-105"
@@ -140,3 +146,40 @@
     </div>
   </div>
 </section>
+
+<script>
+  const form = document.getElementById('form-orcamento');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(form);
+      const tipoProjeto = formData.get('tipo-projeto') || '';
+      
+      try {
+        const response = await fetch('/api/orcamento', {
+          method: 'POST',
+          body: formData,
+        });
+        
+        if (response.ok) {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: 'generate_lead',
+            form: 'orcamento',
+            tipo_projeto: tipoProjeto,
+            page: location.pathname,
+          });
+          
+          setTimeout(() => {
+            window.location.href = '/criacao-sites/obrigado/';
+          }, 300);
+        } else {
+          alert('Erro ao enviar o formulário. Por favor, tente novamente ou entre em contato pelo WhatsApp.');
+        }
+      } catch (error) {
+        alert('Erro ao enviar o formulário. Por favor, tente novamente ou entre em contato pelo WhatsApp.');
+      }
+    });
+  }
+</script>

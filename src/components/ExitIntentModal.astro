@@ -1,3 +1,6 @@
+---
+import { waLink } from '../data/contato';
+---
 <div id="exit-modal" data-analytics-source="exit_intent_modal" class="hidden fixed inset-0 z-[80] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="exit-modal-title" aria-hidden="true">
   <div id="exit-modal-overlay" class="exit-intent-overlay-enter absolute inset-0 bg-black/70 backdrop-blur-sm cursor-pointer"></div>
 
@@ -50,7 +53,9 @@
       </a>
 
       <a
-        href="https://wa.me/5511912136490?text=Ol%C3%A1!%20Vi%20a%20oferta%20antes%20de%20sair%20e%20quero%20minha%20an%C3%A1lise%20gratuita."
+        href={waLink('Olá! Vi a oferta antes de sair e quero minha análise gratuita.')}
+        data-track="whatsapp"
+        data-local="exit-modal"
         target="_blank"
         rel="noopener noreferrer"
         class="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full font-semibold text-sm sm:text-base transition-all hover:scale-105"

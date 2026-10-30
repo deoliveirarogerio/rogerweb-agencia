@@ -11,6 +11,7 @@ interface Props {
   ogImage?: string;
   ogType?: 'website' | 'article';
   jsonLd?: object;
+  noindex?: boolean;
 }
 
 const {
@@ -21,6 +22,7 @@ const {
   ogImage = 'https://rogerweb.com.br/assets/images/logo-rogerweb.png',
   ogType = 'website',
   jsonLd,
+  noindex = false,
 } = Astro.props;
 ---
 
@@ -66,6 +68,13 @@ const {
 
         if (!eventName && /^https?:\/\/(?:api\.)?wa\.me\//i.test(href)) {
           eventName = 'whatsapp_click';
+          const local = target.dataset.local || 'indefinido';
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: 'whatsapp_click',
+            local,
+            page: location.pathname,
+          });
         } else if (!eventName && href.startsWith('mailto:')) {
           eventName = 'email_click';
         } else if (!eventName && href.startsWith('tel:')) {
@@ -94,6 +103,7 @@ const {
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     <meta property="og:type" content={ogType} />
     <meta property="og:title" content={title} />

@@ -1,5 +1,6 @@
 ---
 import { precos } from '../../data/precos';
+import { waLink } from '../../data/contato';
 ---
 
 <section id="precos" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
@@ -43,7 +44,9 @@ import { precos } from '../../data/precos';
             ))}
           </ul>
           <a
-            href={`https://wa.me/5511910802646?text=${encodeURIComponent(plano.whatsappMsg)}`}
+            href={waLink(plano.whatsappMsg)}
+            data-track="whatsapp"
+            data-local={`preco-${plano.id}`}
             target="_blank"
             rel="noopener noreferrer"
             class={`inline-block ${
